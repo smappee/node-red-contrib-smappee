@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-smappee-knx",
+  "name": "@smappee/node-red-contrib-smappee-knx",
   "version": "0.0.1",
   "description": "KNX nodes",
   "author": "Smappee NV",

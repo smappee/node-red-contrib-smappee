@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-smappee",
+  "name": "@smappee/node-red-contrib-smappee",
   "version": "0.0.1",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",

@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-smappee-device",
+  "name": "@smappee/node-red-contrib-smappee-device",
   "version": "0.0.1",
   "description": "Collection of device nodes that provide input",
   "author": "Smappee NV",
