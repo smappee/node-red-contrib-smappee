@@ -1,0 +1,117 @@
+<!-- Node 'device-config' -->
+
+<script type="text/x-red" data-template-name="device-config">
+  <div class="form-row">
+    <label for="node-config-input-host"><i class="fa fa-globe"></i> <span>Host</span></label>
+    <input type="text" id="node-config-input-host">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-uuid"><i class="fa fa-tag"></i> <span>UUID</span></label>
+    <input type="text" id="node-config-input-uuid">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
+    <input type="text" id="node-config-input-name" data-i18n="[placeholder]common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="device-config">
+    <p>A configuration node for a Smappee device.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('device-config', {
+    category: 'config',
+    defaults: {
+      name: {value: ''},
+      host: {value: 'localhost', required: true},
+      uuid: {value: '', required: true}
+    },
+    label: function () {
+      return this.name || 'smappee:' + this.host
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>
+
+<!-- Node 'plug-config' -->
+
+<script type="text/x-red" data-template-name="plug-config">
+  <div class="form-row">
+    <label for="node-config-input-uuid"><i class="fa fa-tag"></i> <span>ID</span></label>
+    <input type="text" id="node-config-input-uuid">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
+    <input type="text" id="node-config-input-name" data-i18n="[placeholder]common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="device-config">
+    <p>A configuration node for a plug.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('plug-config', {
+    category: 'config',
+    defaults: {
+      name: {value: ''},
+      uuid: {value: '', required: true}
+    },
+    label: function () {
+      return this.name || 'uuid:' + this.uuid
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>
+
+<!-- Node 'device' -->
+
+<script type="text/x-red" data-template-name="device">
+  <div class="form-row">
+    <label for="node-input-device"><i class="fa fa-globe"></i> <span>Smappee</span></label>
+    <input type="text" id="node-input-device">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-location"><i class="fa fa-tag"></i> <span>Location</span></label>
+    <input type="text" id="node-input-location">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="device">
+  <p>Device node that provides config information about the Smappee device and returns it as an object.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('device', {
+    category: 'smappee device',
+    color: '#99c031',
+    defaults: {
+      name: {value: ''},
+      device: {value: '', required: true, type: 'device-config'}
+    },
+    inputs: 0,
+    outputs: 1,
+    icon: 'inject.png',
+    label: function () {
+      const device = RED.nodes.node(this.device)
+      return this.name || 'device' + (device ? `:${device.host}` : '')
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>

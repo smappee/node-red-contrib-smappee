@@ -1,0 +1,36 @@
+{
+  "name": "node-red-contrib-smappee-knx",
+  "version": "0.0.1",
+  "description": "KNX nodes",
+  "author": "Smappee NV",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:smappee/node-red-contrib-smappee.git"
+  },
+  "keywords": [
+    "smappee",
+    "node-red",
+    "iot",
+    "knx"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
+  "node-red": {
+    "nodes": {
+      "connection": "node-connection.js",
+      "destination": "node-destination.js",
+      "gateway": "node-gateway.js"
+    }
+  },
+  "dependencies": {
+    "bytebuffer": "^5.0.1",
+    "knx": "^2.2.8",
+    "moment": "^2.19.4",
+    "numeral": "^2.0.6"
+  }
+}

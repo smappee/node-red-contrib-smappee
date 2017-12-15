@@ -1,0 +1,54 @@
+<script type="text/x-red" data-template-name="connection">
+  <div class="form-row">
+    <label for="node-input-gateway"><i class="fa fa-globe"></i> <span>Gateway</span></label>
+    <input type="text" id="node-input-gateway">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-source"><i class="fa fa-tag"></i> <span>Source</span></label>
+    <input type="text" id="node-input-source">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-destination"><i class="fa fa-tag"></i> <span>Destination</span></label>
+    <input type="text" id="node-input-destination">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-value"><i class="fa fa-tag"></i> <span>Value</span></label>
+    <input type="text" id="node-input-value">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="connection">
+  <p>Template node</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('connection', {
+    category: 'smappee knx',
+    color: '#99c031',
+    defaults: {
+      name: {value: ''},
+      gateway: {value: '', required: true, type: 'gateway-config'},
+      source: {value: ''},
+      destination: {value: ''},
+      value: {value: ''}
+    },
+    inputs: 0,
+    outputs: 1,
+    icon: 'inject.png',
+    label: function () {
+      const gateway = RED.nodes.node(this.gateway)
+      return this.name || 'connection:' + (gateway ? (gateway.name ? gateway.name : `${gateway.host}:${gateway.port}`)  : '')
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>

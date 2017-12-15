@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Added project files and a basic structure, including this CHANGELOG
+- Several nodes were created, such as the Smappee device and KNX nodes
   
 ### Changed
 

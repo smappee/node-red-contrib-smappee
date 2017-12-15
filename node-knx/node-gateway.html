@@ -1,0 +1,44 @@
+<script type="text/x-red" data-template-name="gateway-config">
+  <div class="form-row">
+    <label for="node-config-input-host"><i class="fa fa-globe"></i> <span>Host</span></label>
+    <input type="text" id="node-config-input-host">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-port"><i class="fa fa-tag"></i> <span>Port</span></label>
+    <input type="text" id="node-config-input-port" style="width:65px;">
+  </div>
+
+  <div class="form-row">
+    <label>&nbsp;</label>
+    <input type="checkbox" id="node-config-input-useTunneling" style="display: inline-block; width: auto; vertical-align: top;">
+    <label for="node-config-input-useTunneling" style="width: 70%;">Use tunneling?</label>
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
+    <input type="text" id="node-config-input-name" data-i18n="[placeholder]common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="gateway-config">
+    <p>A configuration node for a KNX gateway.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('gateway-config', {
+    category: 'config',
+    defaults: {
+      name: {value: ''},
+      host: {value: '224.0.23.12', required: true},
+      port: {value: 3671, required: true, validate: RED.validators.number()},
+      useTunneling: {value: false}
+    },
+    label: function () {
+      return this.name || `gateway:${host}:${port}`
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>

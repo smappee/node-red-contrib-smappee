@@ -1,0 +1,42 @@
+<script type="text/x-red" data-template-name="plug-consumption">
+  <div class="form-row">
+    <label for="node-input-device"><i class="fa fa-globe"></i> <span>Smappee</span></label>
+    <input type="text" id="node-input-device">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-plug"><i class="fa fa-tag"></i> <span>Plug</span></label>
+    <input type="text" id="node-input-plug">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="plug-consumption">
+    <p>A plug node that returns consumption data for a plug if it is available.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('plug-consumption', {
+    category: 'smappee device',
+    color: '#99c031',
+    defaults: {
+      name: {value: ''},
+      device: {value: '', required: true, type: 'device-config'},
+      plug: {value: '', required: true, type: 'plug-config'}
+    },
+    inputs: 0,
+    outputs: 1,
+    icon: 'arrow-in.png',
+    label: function () {
+      const plug = RED.nodes.node(this.plug)
+      return this.name || 'plug' + (plug ? ':' + plug.uuid : '')
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>
