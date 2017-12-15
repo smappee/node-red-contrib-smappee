@@ -1,0 +1,27 @@
+{
+  "name": "node-red-contrib-smappee",
+  "version": "0.0.1",
+  "description": "Smappee Node-RED contains Smappee nodes and example flows",
+  "author": "Smappee NV",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/smappee/node-red-contrib-smappee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:smappee/node-red-contrib-smappee.git"
+  },
+  "keywords": [
+    "smappee",
+    "node-red",
+    "iot"
+  ],
+  "directories": {
+    "doc": "./docs"
+  },
+  "node-red": {
+    "nodes": {
+    }
+  }
+}
