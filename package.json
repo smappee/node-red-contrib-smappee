@@ -13,8 +13,8 @@
     "url": "git@github.com:smappee/node-red-contrib-smappee.git"
   },
   "keywords": [
-    "smappee",
     "node-red",
+    "smappee",
     "iot"
   ],
   "directories": {
