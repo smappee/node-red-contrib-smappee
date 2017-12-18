@@ -1,6 +1,6 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",

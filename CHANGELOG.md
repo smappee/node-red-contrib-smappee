@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.0.2] - 2017-12-18
+
+### Changed
+
+- Keywords were slightly changed to make packages easily found in Node-RED
+
 ## [0.0.1] - 2017-12-15
 
 ### Added
