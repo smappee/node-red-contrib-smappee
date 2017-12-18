@@ -15,7 +15,7 @@ This repository contains all nodes available, separated per category.
 
 ## Feedback
 
-Help us improve by mailing [github@smappee.com](github@smappee.com) with feedback.
+Help us improve by mailing [github@smappee.com](mailto:github@smappee.com) with feedback.
 
 ## Nodes
 
