@@ -13,6 +13,10 @@ npm install @smappee/node-red-contrib-smappee
 
 This repository contains all nodes available, separated per category.
 
+## Feedback
+
+Help us improve by mailing [github@smappee.com](github@smappee.com) with feedback.
+
 ## Nodes
 
 Nodes are split into different categories to make smaller installations possible.
