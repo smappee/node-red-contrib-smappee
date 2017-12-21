@@ -9,16 +9,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- 
+  
+### Changed
+
+- 
+
+### Removed
+
+- 
+
+## [0.0.3] - 2017-12-21
+
+### Added
+
 - Added a feedback email to the README
   
 ### Changed
 
 - Updated README documentation
 - Refactored the device config node so that only the device serial number is absolutely necessary
-
-### Removed
-
-- 
 
 ## [0.0.2] - 2017-12-18
 

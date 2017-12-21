@@ -1,6 +1,6 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
@@ -22,6 +22,14 @@
   },
   "node-red": {
     "nodes": {
+      "device": "node-device/node-device.js",
+      "plug-consumption": "node-device/node-plug-consumption.js",
+      "plug-state": "node-device/node-plug-state.js",
+      "presence": "node-device/node-presence.js",
+      "realtime": "node-device/node-realtime.js",
+      "connection": "node-knx/node-connection.js",
+      "destination": "node-knx/node-destination.js",
+      "gateway": "node-knx/node-gateway.js"
     }
   }
 }
