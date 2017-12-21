@@ -8,8 +8,7 @@ module.exports = function (RED) {
 
     if (device && plug) {
       // Setup a subscriber to the plug's consumption topic
-      const topic = `servicelocation/${device.uuid}/plug/${plug.uuid}/consumption`
-      device.subscribe(topic, node)
+      device.subscribe(`plug/${plug.uuid}/consumption`, node)
     }
   }
 

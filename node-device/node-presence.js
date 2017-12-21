@@ -7,8 +7,7 @@ module.exports = function (RED) {
 
     if (device) {
       // Setup a subscriber to the device's presence topic
-      const topic = `servicelocation/${location.uuid}/presence`
-      device.subscribe(topic, node)
+      device.subscribe(`presence`, node)
     }
   }
 

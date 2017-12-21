@@ -10,7 +10,7 @@ class NodeConnection {
     this.messageHandlers = new Map()
   }
 
-  connect () {
+  connect (callback = this.connectCallback.bind(this)) {
     const node = this.node
 
     // Return if a connection is active already
@@ -22,9 +22,7 @@ class NodeConnection {
     this.client = new MqttClient(this.broker)
 
     // Connect via MQTT
-    this.client.connect(function () {
-      node.log('Connected to: ' + this.broker)
-    }.bind(this))
+    this.client.connect(callback)
 
     // Disconnects the client after closing the node
     node.on('close', function () {
@@ -35,6 +33,10 @@ class NodeConnection {
 
     // Bind the message handler
     this.client.handleMessage = this.handleMessage.bind(this)
+  }
+
+  connectCallback () {
+    this.node.log('Connected to: ' + this.broker)
   }
 
   disconnect () {
@@ -58,16 +60,34 @@ class NodeConnection {
   /**
    * Sets a handler for each topic and then subscribes to it.
    * @param topic
-   * @param node
+   * @param handler
    */
-  subscribe (topic, node) {
+  subscribe (topic, handler) {
     this.connect()
 
     // Keep a list of handlers
-    this.messageHandlers.set(topic, node)
+    this.messageHandlers.set(topic, (this.messageHandlers.get(topic) || []).concat(handler))
 
-    node.status({fill: 'grey', shape: 'dot', text: 'node-red:common.status.connecting'})
+    // Set the status if possible
+    if (typeof handler === 'object' && handler.status) {
+      handler.status({fill: 'grey', shape: 'dot', text: 'node-red:common.status.connecting'})
+    }
+
     this.client.subscribe(topic)
+  }
+
+  /**
+   * Unsubscribes a handler from a certain topic
+   * @param topic
+   * @param handler
+   */
+  unsubscribe (topic, handler) {
+    const handlers = this.messageHandlers.get(topic)
+    const index = handlers.indexOf(handler)
+
+    if (index > -1) {
+      this.messageHandlers.set(topic, handlers.splice(index, 1))
+    }
   }
 
   /**
@@ -87,11 +107,28 @@ class NodeConnection {
    * @param message
    */
   handleMessage (topic, message) {
-    const handler = this.messageHandlers.get(topic)
+    let handlers = this.messageHandlers.get(topic) || []
 
-    if (handler) {
-      handler.status({fill: 'green', shape: 'dot', text: 'node-red:common.status.connected'})
-      handler.send({payload: message})
+    // Consider handlers that listen to wildcards
+    for (let [key, value] of this.messageHandlers) {
+      if (key.indexOf('+') !== -1 || key.indexOf('#') !== -1) {
+        const regex = new RegExp(key.replace(/\+|#/, '.*'))
+
+        // See if the topic matches the regular expression
+        if (regex.test(topic)) {
+          handlers = handlers.concat(value)
+        }
+      }
+    }
+
+    // Loop over the handlers
+    for (let handler of handlers) {
+      if (typeof handler === 'function') {
+        handler(message)
+      } else if (typeof handler === 'object') {
+        handler.status({fill: 'green', shape: 'dot', text: 'node-red:common.status.connected'})
+        handler.send({payload: message})
+      }
     }
   }
 }

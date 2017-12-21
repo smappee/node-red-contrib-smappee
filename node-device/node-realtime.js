@@ -7,8 +7,7 @@ module.exports = function (RED) {
 
     if (device) {
       // Setup a subscriber to the device's realtime topic
-      const topic = `servicelocation/${device.uuid}/realtime`
-      device.subscribe(topic, node)
+      device.subscribe(`realtime`, node)
     }
   }
 
