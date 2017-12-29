@@ -1,10 +1,10 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://github.com/smappee/node-red-contrib-smappee",
+  "homepage": "https://github.com/smappee/node-red-contrib-smappee#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

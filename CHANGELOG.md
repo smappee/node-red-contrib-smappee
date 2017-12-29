@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.0.4] - 2017-12-29
+
+### Changed
+
+- Updated to `mqtt` version 2.15.0
+
 ## [0.0.3] - 2017-12-21
 
 ### Added
