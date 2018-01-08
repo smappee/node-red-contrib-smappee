@@ -93,6 +93,14 @@
 
 <script type="text/x-red" data-help-name="device">
   <p>Device node that provides config information about the Smappee device and returns it as an object.</p>
+  <h3>Outputs</h3>
+  <p>A message is returned once on start-up through <code>msg.payload</code> values:</p>
+  <dl class="message-properties">
+    <dt>utcTimeStamp <span class="property-type">number</span></dt>
+    <dd>Numeric value of the current date and time on the device.</dd>
+    <dt>config <span class="property-type">object</span></dt>
+    <dd>Contains config properties such as the phase mapping and network settings.</dd>
+  </dl>
 </script>
 
 <script type="text/javascript">

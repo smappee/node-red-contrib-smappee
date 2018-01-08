@@ -1,7 +1,7 @@
 # Node-RED: Smappee
 
 A collection of [Smappee](https://www.smappee.com) nodes for [Node-RED](https://www.nodered.org).
-See below for a complete list.
+See the [nodes](#Nodes) below for a complete list per category. 
 
 ## Installation
 
@@ -29,6 +29,11 @@ Smappee devices can be read with the nodes in `node-device`.
 npm install @smappee/node-red-contrib-smappee-device
 ```
 
+Device nodes require a 
+[Smappee Plus](https://www.smappee.com/be_en/plus-energy-monitor) or 
+[Smappee Pro](https://www.smappee.com/be_en/pro-energy-monitor) to work. 
+Contact [support@smappee.com](mailto:support@smappee.com) to activate Node-RED on the device itself.
+
 ### Category [`knx`](./node-knx/README.md)
 
 KNX events can be received and sent through nodes in `node-knx`.
@@ -39,4 +44,4 @@ npm install @smappee/node-red-contrib-smappee-knx
 
 ## Copyright and license
 
-Copyright © 2017 Smappee NV, all rights reserved.
+Copyright © 2017-2018 Smappee NV, all rights reserved.

@@ -16,7 +16,25 @@
 </script>
 
 <script type="text/x-red" data-help-name="plug-state">
-    <p>A node to change and read the state of a plug (e.g. on or off).</p>
+  <p>A node to change and read the state of a plug (e.g. on or off).</p>
+  <h3>Inputs</h3>
+  <p>Send input through <code>msg.payload</code> values:</p>
+  <dl class="message-properties">
+    <dt>on <span class="property-type">boolean</span></dt>
+    <dd>Interval data as an array of objects.</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <p>Messages are periodically returned through <b>msg.payload</b> values:</p>
+  <dl class="message-properties">
+    <dt>value <span class="property-type">string</span></dt>
+    <dd>State value, either <code>ON</code> or <code>OFF</code>.</dd>
+    <dt>since <span class="property-type">number</span></dt>
+    <dd>Timestamp of when the state was changed.</dd>
+    <dt>nodeId <span class="property-type">number</span></dt>
+    <dd>Id of the node that was changed.</dd>
+  </dl>
+  <h3>Details</h3>
+  <p></p>
 </script>
 
 <script type="text/javascript">

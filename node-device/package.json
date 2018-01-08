@@ -22,6 +22,7 @@
   },
   "node-red": {
     "nodes": {
+      "aggregated": "node-aggregated.js",
       "device": "node-device.js",
       "plug-consumption": "node-plug-consumption.js",
       "plug-state": "node-plug-state.js",

@@ -1,4 +1,4 @@
-<script type="text/x-red" data-template-name="presence">
+<script type="text/x-red" data-template-name="aggregated">
   <div class="form-row">
     <label for="node-input-device"><i class="fa fa-globe"></i> <span>Smappee</span></label>
     <input type="text" id="node-input-device">
@@ -10,30 +10,30 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="presence">
-  <p>Whether someone is present at the Smappee's location based on usage.</p>
+<script type="text/x-red" data-help-name="aggregated">
+  <p>A node that returns the aggregated power values every 5 minutes.</p>
   <h3>Outputs</h3>
-  <p>Messages are returned when presence status changes via <code>msg.payload</code> values:</p>
+  <p>Messages are returned every 5 minutes through <code>msg.payload</code> values:</p>
   <dl class="message-properties">
-    <dt>value <span class="property-type">boolean</span></dt>
-    <dd>True or false whether there is significant indication someone is present at the location.</dd>
+      <dt>intervalDatas <span class="property-type">array</span></dt>
+      <dd>Interval data as an array of objects.</dd>
   </dl>
 </script>
 
 <script type="text/javascript">
-  RED.nodes.registerType('presence', {
+  RED.nodes.registerType('aggregated', {
     category: 'smappee device',
     color: '#99c031',
     defaults: {
       name: {value: ''},
-      device: {value: '', required: true, type: 'device-config'}
+      device: {value: '', required: true, type: 'device-config'},
     },
     inputs: 0,
     outputs: 1,
     icon: 'arrow-in.png',
     label: function () {
       const device = RED.nodes.node(this.device)
-      return this.name || 'presence' + (device ? ':' + device.host : '')
+      return this.name || 'aggregated' + (device ? ':' + device.host : '')
     },
     labelStyle: function () {
       return this.name ? 'node_label_italic' : ''
