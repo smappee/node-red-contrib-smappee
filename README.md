@@ -32,7 +32,7 @@ npm install @smappee/node-red-contrib-smappee-device
 Device nodes require a 
 [Smappee Plus](https://www.smappee.com/be_en/plus-energy-monitor) or 
 [Smappee Pro](https://www.smappee.com/be_en/pro-energy-monitor) to work. 
-Contact [support@smappee.com](mailto:support@smappee.com) to activate Node-RED on the device itself.
+Please contact [support@smappee.com](mailto:support@smappee.com) to activate Node-RED on the device itself.
 
 ### Category [`knx`](./node-knx/README.md)
 
