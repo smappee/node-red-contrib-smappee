@@ -19,6 +19,13 @@
 
 <script type="text/x-red" data-help-name="device-config">
     <p>A configuration node for a Smappee device.</p>
+    <h3>Serial</h3>
+    <p>Serial number of your Smappee device. This can be found on a sticker on the device.</p>
+    <h3>Host</h3>
+    <p>Only required if your network does not support DNS name resolution. Alternatively you can find the
+    device's IP address in the Smappee app.</p>
+    <h3>Name</h3>
+    <p>Type in the name of the device manually or keep the default name.</p>
 </script>
 
 <script type="text/javascript">
@@ -42,7 +49,7 @@
 
 <script type="text/x-red" data-template-name="plug-config">
   <div class="form-row">
-    <label for="node-config-input-uuid"><i class="fa fa-tag"></i> <span>ID</span></label>
+    <label for="node-config-input-uuid"><i class="fa fa-tag"></i> <span>Plug ID</span></label>
     <input type="text" id="node-config-input-uuid">
   </div>
 
@@ -52,8 +59,12 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="device-config">
+<script type="text/x-red" data-help-name="plug-config">
     <p>A configuration node for a plug.</p>
+    <h3>Plug ID</h3>
+    <p>Identifier of the plug, starts with 1 if you only have a single plug. Increments with 1 per plug you have configured.</p>
+    <h3>Name</h3>
+    <p>Type in the name of the plug manually or keep the default name.</p>
 </script>
 
 <script type="text/javascript">
@@ -64,7 +75,7 @@
       uuid: {value: '', required: true}
     },
     label: function () {
-      return this.name || 'uuid:' + this.uuid
+      return this.name || 'plug:' + this.uuid
     },
     labelStyle: function () {
       return this.name ? 'node_label_italic' : ''

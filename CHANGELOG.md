@@ -9,15 +9,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- 
+  
+### Changed
+
+- 
+
+### Removed
+
+- 
+
+## [0.0.5] - 2018-01-09
+
+### Added
+
 - An aggregate node has been added to get 5 minute power values from a device
   
 ### Changed
 
 - Extra documentation for the device nodes, how to use inputs and outputs
-
-### Removed
-
-- 
 
 ## [0.0.4] - 2017-12-29
 
