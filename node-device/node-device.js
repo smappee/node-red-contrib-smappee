@@ -31,7 +31,7 @@ module.exports = function (RED) {
       const topic = `servicelocation/+/config`
       const handler = (message) => {
         node.connection.unsubscribe(topic, this)
-        const uuid = message['config']['serviceLocationUuid']
+        const uuid = message['config'] ? message['config']['serviceLocationUuid'] : null
 
         if (uuid) {
           node.uuid = uuid

@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   
 ### Changed
 
-- 
+- Added check on device config before using it to establish a connection
 
 ### Removed
 
