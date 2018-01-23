@@ -73,4 +73,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Scoped the packaged on @smappee
+- Scoped the packages on @smappee
