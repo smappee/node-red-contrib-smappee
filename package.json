@@ -1,11 +1,12 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/smappee/node-red-contrib-smappee#readme",
   "scripts": {
+    "postinstall": "node tools/postinstall",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

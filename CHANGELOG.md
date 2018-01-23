@@ -17,15 +17,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- 
+-
+
+## [0.0.7] - 2018-01-23
+
+### Added
+
+- Created postinstall script that installs child nodes and their dependencies correctly
 
 ## [0.0.6] - 2018-01-18
 
-  
 ### Changed
 
 - Added check on device config before using it to establish a connection
-
 
 ## [0.0.5] - 2018-01-09
 
