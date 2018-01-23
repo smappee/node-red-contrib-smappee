@@ -51,7 +51,7 @@ class NodeConnection {
         const handler = this.messageHandlers[key]
 
         if (handler) {
-          handler.status({fill: 'red', shape: 'dot', text: 'node-red:common.status.disconnected'})
+          handler.status({fill: 'red', shape: 'dot', text: 'disconnected'})
         }
       }
     }
@@ -70,7 +70,7 @@ class NodeConnection {
 
     // Set the status if possible
     if (typeof handler === 'object' && handler.status) {
-      handler.status({fill: 'grey', shape: 'dot', text: 'node-red:common.status.connecting'})
+      handler.status({fill: 'grey', shape: 'dot', text: 'connecting'})
     }
 
     this.client.subscribe(topic)
@@ -126,7 +126,7 @@ class NodeConnection {
       if (typeof handler === 'function') {
         handler(message)
       } else if (typeof handler === 'object') {
-        handler.status({fill: 'green', shape: 'dot', text: 'node-red:common.status.connected'})
+        handler.status({fill: 'green', shape: 'dot', text: 'connected'})
         handler.send({payload: message})
       }
     }
