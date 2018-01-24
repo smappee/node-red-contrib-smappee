@@ -6,7 +6,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/smappee/node-red-contrib-smappee#readme",
   "scripts": {
-    "postinstall": "node tools/postinstall",
+    "postinstall": "node ./tools/run.js install",
+    "postpublish": "node ./tools/run.js publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

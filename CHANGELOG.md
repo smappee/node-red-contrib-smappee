@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- 
+- Added generic run script to run tasks for each node directory
   
 ### Changed
 
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
--
+- Old postinstall script was replaced with a generic run script
 
 ## [0.0.9] - 2018-01-24
 
