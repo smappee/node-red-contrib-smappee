@@ -65,7 +65,7 @@ class KnxGateway {
 
   onError (status) {
     // Only log errors that have nothing to do with timing out
-    if(!status.startsWith('timed out waiting for ')) {
+    if (!status.startsWith('timed out waiting for ')) {
       console.log(`KNX error: ${status}`)
     }
   }
@@ -111,7 +111,7 @@ class KnxGateway {
       case 3:
         return 4
       case 0:
-        // Fallthrough
+      // Fallthrough
       default:
         // Other DPTs do not require specific bit lengths
         return undefined

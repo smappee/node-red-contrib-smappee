@@ -11,12 +11,17 @@
 
   <div class="form-row">
     <label for="node-input-dpt"><i class="fa fa-bookmark"></i> <span>DPT</span></label>
-    <select>
+    <select id="node-input-dpt">
       <option value="0">Other</option>
-      <option value="1">DPT 1</option>
-      <option value="2">DPT 2</option>
-      <option value="3">DPT 3</option>
+      <option value="1">DPT 1 (1-bit boolean)</option>
+      <option value="2">DPT 2 (1-bit priority control)</option>
+      <option value="3">DPT 3 (3-bit control)</option>
     </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+    <input type="text" id="node-input-name" placeholder="Name">
   </div>
 </script>
 

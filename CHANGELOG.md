@@ -13,15 +13,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   
 ### Changed
 
--
+- 
 
 ### Removed
 
 -
 
+## [0.0.9] - 2018-01-24
+
+### Changed
+
+- Fixed the KNX destination node so that the DPT value is saved
+- Added boolean check on sent values through KNX
+
 ## [0.0.8] - 2018-01-23
 
-## Changed
+### Changed
 
 - Updated configuration labels
 
