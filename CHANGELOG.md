@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Added generic run script to run tasks for each node directory
+- Example flow for turning a KNX device on or off
   
 ### Changed
 

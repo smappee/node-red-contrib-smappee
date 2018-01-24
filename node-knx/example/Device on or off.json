@@ -1,0 +1,61 @@
+[
+  {
+    "id": "e10d92fe.ca891",
+    "type": "destination",
+    "z": "3543e3de.30b1ac",
+    "name": "Lamp",
+    "gateway": "85eebfdc.da1ae",
+    "destination": "0/6/45",
+    "dpt": "1",
+    "x": 590,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "bbf19696.e1ef78",
+    "type": "inject",
+    "z": "3543e3de.30b1ac",
+    "name": "On",
+    "topic": "",
+    "payload": "true",
+    "payloadType": "bool",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 450,
+    "y": 360,
+    "wires": [
+      [
+        "e10d92fe.ca891"
+      ]
+    ]
+  },
+  {
+    "id": "62ab5f58.7e9f6",
+    "type": "inject",
+    "z": "3543e3de.30b1ac",
+    "name": "Off",
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 450,
+    "y": 420,
+    "wires": [
+      [
+        "e10d92fe.ca891"
+      ]
+    ]
+  },
+  {
+    "id": "85eebfdc.da1ae",
+    "type": "gateway-config",
+    "z": "",
+    "name": "My gateway",
+    "host": "224.0.23.12",
+    "port": "3671",
+    "useTunneling": false
+  }
+]
