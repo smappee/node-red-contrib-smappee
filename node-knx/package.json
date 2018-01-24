@@ -19,7 +19,8 @@
     "knx"
   ],
   "directories": {
-    "lib": "./lib"
+    "lib": "./lib",
+    "example": "./example"
   },
   "node-red": {
     "nodes": {
