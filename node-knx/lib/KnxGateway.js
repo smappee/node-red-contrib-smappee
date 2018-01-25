@@ -16,7 +16,6 @@ class KnxGateway {
       this.connection = new knx.Connection({
         ipAddr: this.host,
         ipPort: this.port,
-        forceTunneling: this.useTunneling,
         manualConnect: true,
         handlers: {
           connected: this.onConnected.bind(this),

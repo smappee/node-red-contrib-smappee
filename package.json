@@ -1,13 +1,12 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/smappee/node-red-contrib-smappee#readme",
   "scripts": {
     "postinstall": "node ./tools/run.js install",
-    "postpublish": "node ./tools/run.js publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,8 +24,8 @@
   "node-red": {
     "nodes": {
       "aggregated": "node-device/node-aggregated.js",
+      "aggregated-switch": "node-device/node-aggregated-switch.js",
       "device": "node-device/node-device.js",
-      "plug-consumption": "node-device/node-plug-consumption.js",
       "plug-state": "node-device/node-plug-state.js",
       "presence": "node-device/node-presence.js",
       "realtime": "node-device/node-realtime.js",

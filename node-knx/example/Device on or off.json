@@ -6,9 +6,9 @@
     "name": "Lamp",
     "gateway": "85eebfdc.da1ae",
     "destination": "0/6/45",
-    "dpt": "1",
-    "x": 590,
-    "y": 360,
+    "dpt": "DPT1",
+    "x": 450,
+    "y": 300,
     "wires": []
   },
   {
@@ -22,8 +22,8 @@
     "repeat": "",
     "crontab": "",
     "once": false,
-    "x": 450,
-    "y": 360,
+    "x": 310,
+    "y": 260,
     "wires": [
       [
         "e10d92fe.ca891"
@@ -41,8 +41,8 @@
     "repeat": "",
     "crontab": "",
     "once": false,
-    "x": 450,
-    "y": 420,
+    "x": 310,
+    "y": 340,
     "wires": [
       [
         "e10d92fe.ca891"

@@ -14,7 +14,12 @@ module.exports = function (RED) {
       node.on('input', function (msg) {
         if (msg.hasOwnProperty('payload')) {
           const payload = msg.payload
-          const onState = payload.on
+          let onState = typeof payload === 'object' ? payload.on : undefined
+
+          // Support boolean payloads
+          if (payload === true || payload === false) {
+            onState = payload
+          }
 
           // Publish the on or off message
           if (typeof onState !== 'undefined') {

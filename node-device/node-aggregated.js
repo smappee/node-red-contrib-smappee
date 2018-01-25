@@ -7,7 +7,7 @@ module.exports = function (RED) {
 
     if (device) {
       // Setup a subscriber to the device's aggregated topic
-      device.subscribe(`aggregated5min`, node)
+      device.subscribe(`aggregated`, node)
     }
   }
 

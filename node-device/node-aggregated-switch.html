@@ -1,12 +1,7 @@
-<script type="text/x-red" data-template-name="plug-consumption">
+<script type="text/x-red" data-template-name="aggregated-switch">
   <div class="form-row">
     <label for="node-input-device"><i class="fa fa-globe"></i> <span>Smappee</span></label>
     <input type="text" id="node-input-device">
-  </div>
-
-  <div class="form-row">
-    <label for="node-input-plug"><i class="fa fa-tag"></i> <span>Plug</span></label>
-    <input type="text" id="node-input-plug">
   </div>
 
   <div class="form-row">
@@ -15,8 +10,9 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="plug-consumption">
-  <p>A plug node that returns consumption data for a plug if it is available.</p>
+<script type="text/x-red" data-help-name="aggregated-switch">
+  <p>Returns aggregated consumption every 5 minutes for all
+  <a href="https://www.smappee.com/be_en/switch-smart-plug">Smappee Switches</a>.</p>
   <h3>Inputs</h3>
   <p>Send input through <code>msg.payload</code> values:</p>
   <dl class="message-properties">
@@ -24,14 +20,15 @@
     <dd>Interval data as an array of objects.</dd>
   </dl>
   <h3>Outputs</h3>
-  <p>Power values are periodically returned through <b>msg.payload</b>:</p>
+  <p>Aggregated power values are periodically returned through <b>msg.payload</b>:</p>
   <dl class="message-properties">
     <dt>value <span class="property-type">number</span></dt>
     <dd>Consumption value of the plug.</dd>
   </dl>
   <h3>Details</h3>
-  <p>Consumption values are returned for plugs that support power monitoring, such as the
-  <a href="https://www.smappee.com/be_en/switch-smart-plug">Smappee Switch</a>.</p>
+  <p>Aggregated consumption values are returned for the
+  <a href="https://www.smappee.com/be_en/switch-smart-plug">Smappee Switch</a>, the values are added together for
+  each switch.</p>
   <p>Requires a
   <a href="https://www.smappee.com/be_en/plus-energy-monitor">Smappee Plus</a> or
   <a href="https://www.smappee.com/be_en/pro-energy-monitor">Smappee Pro</a> device
@@ -40,20 +37,19 @@
 </script>
 
 <script type="text/javascript">
-  RED.nodes.registerType('plug-consumption', {
+  RED.nodes.registerType('aggregated-switch', {
     category: 'smappee device',
     color: '#99c031',
     defaults: {
       name: {value: ''},
-      device: {value: '', required: true, type: 'device-config'},
-      plug: {value: '', required: true, type: 'plug-config'}
+      device: {value: '', required: true, type: 'device-config'}
     },
     inputs: 0,
     outputs: 1,
     icon: 'arrow-in.png',
     label: function () {
       const plug = RED.nodes.node(this.plug)
-      return this.name || 'plug' + (plug ? ':' + plug.uuid : '')
+      return this.name || 'aggregated switch' + (plug ? ':' + plug.uuid : '')
     },
     labelStyle: function () {
       return this.name ? 'node_label_italic' : ''

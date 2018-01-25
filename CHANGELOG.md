@@ -9,12 +9,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Added generic run script to run tasks for each node directory
-- Example flow for turning a KNX device on or off
+- 
   
 ### Changed
 
 - 
+
+### Removed
+
+- 
+
+## [0.0.11] - 2018-01-25
+
+### Added
+
+- Added generic run script to run tasks for each node directory
+- Example flow for turning a KNX device on or off
+- Added support for boolean values as input for the plug state node
+- DPT4, DPT5, and DPT6 have been added to list of data point types
+  
+### Changed
+
+- Updated device nodes to newest firmware changes
+- Forced tunneling has been disabled on the KNX gateway config
+
+## [0.0.10] - 2018-01-25
 
 ### Removed
 
