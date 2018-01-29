@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   
 ### Changed
 
-- 
+- Updated device node to reflect new firmware changes
 
 ### Removed
 

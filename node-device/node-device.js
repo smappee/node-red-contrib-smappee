@@ -31,7 +31,7 @@ module.exports = function (RED) {
       const topic = `servicelocation/+/config`
       const handler = (message) => {
         node.connection.unsubscribe(topic, this)
-        const uuid = message['config'] ? message['config']['serviceLocationUuid'] : null
+        const uuid = message['config'] ? message['config']['serviceLocationUuid'] : message['serviceLocationUuid']
 
         if (uuid) {
           node.uuid = uuid
@@ -49,7 +49,7 @@ module.exports = function (RED) {
       hostPromise.then((host) => {
         uuidPromise.then((uuid) => {
           node.connection.subscribe(`servicelocation/${uuid}/${topic}`, handler)
-        }).catch(() => {
+        }).catch((err) => {
           node.log('Failed to retrieve device UUID')
         })
       }).catch(() => {
