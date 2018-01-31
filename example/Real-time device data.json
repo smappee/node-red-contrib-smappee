@@ -1,0 +1,28 @@
+[
+  {
+    "id": "6af3794.96a3588",
+    "type": "realtime",
+    "z": "689abf4d.e907e",
+    "name": "Real-time",
+    "device": "",
+    "x": 340,
+    "y": 480,
+    "wires": [
+      [
+        "a23e3c1b.b10b"
+      ]
+    ]
+  },
+  {
+    "id": "a23e3c1b.b10b",
+    "type": "debug",
+    "z": "689abf4d.e907e",
+    "name": "Real-time response",
+    "active": true,
+    "console": false,
+    "complete": "payload",
+    "x": 530,
+    "y": 480,
+    "wires": []
+  }
+]

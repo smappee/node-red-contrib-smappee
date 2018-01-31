@@ -1,0 +1,82 @@
+[
+  {
+    "id": "81075140.3188f",
+    "type": "plug-state",
+    "z": "689abf4d.e907e",
+    "name": "State",
+    "device": "4bfc6828.9e8548",
+    "plug": "c72a3a43.c3f568",
+    "x": 350,
+    "y": 160,
+    "wires": [
+      [
+        "af4bd070.288e9"
+      ]
+    ]
+  },
+  {
+    "id": "af4bd070.288e9",
+    "type": "debug",
+    "z": "689abf4d.e907e",
+    "name": "Response",
+    "active": false,
+    "console": false,
+    "complete": "payload",
+    "x": 500,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "e7af116d.6a7c4",
+    "type": "inject",
+    "z": "689abf4d.e907e",
+    "name": "On",
+    "topic": "",
+    "payload": "true",
+    "payloadType": "bool",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 210,
+    "y": 160,
+    "wires": [
+      [
+        "81075140.3188f"
+      ]
+    ]
+  },
+  {
+    "id": "7783a34c.aa186c",
+    "type": "inject",
+    "z": "689abf4d.e907e",
+    "name": "Off",
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 210,
+    "y": 220,
+    "wires": [
+      [
+        "81075140.3188f"
+      ]
+    ]
+  },
+  {
+    "id": "4bfc6828.9e8548",
+    "type": "device-config",
+    "z": "",
+    "name": "My Smappee Pro/Plus",
+    "serial": "FILL IN SERIAL",
+    "host": ""
+  },
+  {
+    "id": "c72a3a43.c3f568",
+    "type": "plug-config",
+    "z": "",
+    "name": "My Switch",
+    "uuid": "1"
+  }
+]

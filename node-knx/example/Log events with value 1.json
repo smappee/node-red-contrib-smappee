@@ -1,0 +1,40 @@
+[
+  {
+    "id": "91e1e892.c77bb8",
+    "type": "connection",
+    "z": "3543e3de.30b1ac",
+    "name": "Only 1 values",
+    "gateway": "85eebfdc.da1ae",
+    "source": "",
+    "destination": "",
+    "value": "00000001",
+    "x": 330,
+    "y": 100,
+    "wires": [
+      [
+        "1505f472.d4e64c"
+      ]
+    ]
+  },
+  {
+    "id": "1505f472.d4e64c",
+    "type": "debug",
+    "z": "3543e3de.30b1ac",
+    "name": "Log events",
+    "active": true,
+    "console": "false",
+    "complete": "payload",
+    "x": 510,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "85eebfdc.da1ae",
+    "type": "gateway-config",
+    "z": "",
+    "name": "My gateway",
+    "host": "224.0.23.12",
+    "port": "3671",
+    "useTunneling": false
+  }
+]

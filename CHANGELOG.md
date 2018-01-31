@@ -9,11 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- 
+- Created example flows for most device nodes
+- Added device config output to the msg object
   
 ### Changed
 
-- Updated device node to reflect new firmware changes
+- Updated device node to reflect new firmware changes 
 
 ### Removed
 

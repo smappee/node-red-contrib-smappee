@@ -1,0 +1,28 @@
+[
+  {
+    "id": "6f73cbab.ed9a34",
+    "type": "debug",
+    "z": "689abf4d.e907e",
+    "name": "Aggregated response",
+    "active": true,
+    "console": false,
+    "complete": "payload",
+    "x": 540,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "699f1306.5f88bc",
+    "type": "aggregated-switch",
+    "z": "689abf4d.e907e",
+    "name": "Switch consumption",
+    "device": "",
+    "x": 310,
+    "y": 300,
+    "wires": [
+      [
+        "6f73cbab.ed9a34"
+      ]
+    ]
+  }
+]

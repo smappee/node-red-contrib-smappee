@@ -1,0 +1,28 @@
+[
+  {
+    "id": "d18c9b80.ee6818",
+    "type": "device",
+    "z": "689abf4d.e907e",
+    "name": "Device",
+    "device": "",
+    "x": 350,
+    "y": 560,
+    "wires": [
+      [
+        "4707c33a.d136ac"
+      ]
+    ]
+  },
+  {
+    "id": "4707c33a.d136ac",
+    "type": "debug",
+    "z": "689abf4d.e907e",
+    "name": "Config response",
+    "active": true,
+    "console": "false",
+    "complete": "payload",
+    "x": 520,
+    "y": 560,
+    "wires": []
+  }
+]

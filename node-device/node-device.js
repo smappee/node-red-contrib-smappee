@@ -17,7 +17,7 @@ module.exports = function (RED) {
     node.name = config.name
 
     // Create a MQTT connection only once per device
-    node.connection = new NodeConnection(node, `ws://${node.host}:1884/mqtt`)
+    node.connection = new NodeConnection(node, `ws://${node.host}:1884/mqtt`, RED)
 
     // Wait for a host connection
     const hostPromise = new Promise((resolve, reject) => {

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "8a47a5ce.edd7f8",
+    "type": "comment",
+    "z": "689abf4d.e907e",
+    "name": "Export real-time to MySQL database",
+    "info": "",
+    "x": 840,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "f71668a8.92b638",
+    "type": "function",
+    "z": "689abf4d.e907e",
+    "name": "Format insert",
+    "func": "const table = 'smappee_real-time_data';\nconst serial = msg.device.serial;\n\nconst timestamp = new Date().toISOString();\nconst power = msg.payload.totalPower;\nconst reactivePower = msg.payload.totalReactivePower;\nconst exportEnergy = msg.payload.totalExportEnergy;\nconst importEnergy = msg.payload.totalImportEnergy;\n\nconst query = `INSERT INTO \\`${table}\\` (\\`serial\\`, \\`timestamp\\`, \\`power\\`, \\`reactive_power\\`, \\`export_energy\\`, \\`import_energy\\`) VALUES ('${serial}', '${timestamp}', ${power}, ${reactivePower}, ${exportEnergy}, ${importEnergy});`\n\nreturn {\n    topic: query\n};",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 910,
+    "y": 420,
+    "wires": [
+      [
+        "2c91bd19.d70692"
+      ]
+    ]
+  },
+  {
+    "id": "8f123a36.431308",
+    "type": "realtime",
+    "z": "689abf4d.e907e",
+    "name": "Real-time",
+    "device": "",
+    "x": 740,
+    "y": 420,
+    "wires": [
+      [
+        "f71668a8.92b638"
+      ]
+    ]
+  },
+  {
+    "id": "2c91bd19.d70692",
+    "type": "mysql",
+    "z": "689abf4d.e907e",
+    "mydb": "",
+    "name": "Database",
+    "x": 1080,
+    "y": 420,
+    "wires": [
+      []
+    ]
+  }
+]

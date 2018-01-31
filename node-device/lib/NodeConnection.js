@@ -4,9 +4,10 @@ const MqttClient = require('./MqttClient')
  * Subscriber class for a MQTT connection to a Smappee device.
  */
 class NodeConnection {
-  constructor (node, broker) {
+  constructor (node, broker, RED) {
     this.node = node
     this.broker = broker
+    this.RED = RED
     this.messageHandlers = new Map()
   }
 
@@ -126,8 +127,19 @@ class NodeConnection {
       if (typeof handler === 'function') {
         handler(message)
       } else if (typeof handler === 'object') {
+        const deviceConfig = {}
+
+        if (handler.device) {
+          deviceConfig.uuid = handler.device.uuid
+          deviceConfig.serial = handler.device.serial
+        }
+
         handler.status({fill: 'green', shape: 'dot', text: 'connected'})
-        handler.send({payload: message})
+        handler.send({
+          topic: topic,
+          payload: message,
+          device: deviceConfig,
+        })
       }
     }
   }
