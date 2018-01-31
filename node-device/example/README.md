@@ -1,10 +1,10 @@
 # Example flows
 
-## [Device config](./Device config.json)
+## Device config
 
 Simple flow that outputs the device configuration to a debug node.
 
-## [Export real-time to MySQL database](./Export real-time to MySQL database.json)
+## Export real-time to MySQL database
 
 Real-time data values get inserted to a MySQL database. The insert formatter can be changed, 
 e.g. to change the table name. Use the following create statement to create the table.
@@ -22,14 +22,14 @@ CREATE TABLE `smappee_real-time_data` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6564 DEFAULT CHARSET=latin1;
 ```
 
-## [Real-time device data](./Real-time device data.json)
+## Real-time device data
 
 Outputs real-time device data to a debug node.
 
-## [Switch consumption](./Switch consumption.json)
+## Switch consumption
 
 Return consumption values for all configured Smappee Switches.
 
-## [Toggle Switch](./Toggle Switch.json)
+## Toggle Switch
 
 Turns a Smappee Switch on or off via commands
