@@ -24,6 +24,12 @@ CREATE TABLE `smappee_real-time_data` (
 
 ## [Real-time device data](./Real-time device data.json)
 
+Outputs real-time device data to a debug node.
+
 ## [Switch consumption](./Switch consumption.json)
 
+Return consumption values for all configured Smappee Switches.
+
 ## [Toggle Switch](./Toggle Switch.json)
+
+Turns a Smappee Switch on or off via commands
