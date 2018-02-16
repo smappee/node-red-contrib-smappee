@@ -34,6 +34,14 @@ Device nodes require a
 [Smappee Pro](https://www.smappee.com/be_en/pro-energy-monitor) to work. 
 Please contact [support@smappee.com](mailto:support@smappee.com) to activate Node-RED on the device itself.
 
+### Category [`ev`](./node-ev/README.md)
+
+Electric vehicle nodes such as an OCPP charging point and central system node.
+
+```bash
+npm install @smappee/node-red-contrib-smappee-ev
+```
+
 ### Category [`knx`](./node-knx/README.md)
 
 KNX events can be received and sent through nodes in `node-knx`.

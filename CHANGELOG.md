@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Documentation and references for the electric vehicle nodes
+  
+### Changed
+
+- 
+
+### Removed
+
+- 
+
+## [0.0.12] - 2018-02-16
+
+### Added
+
 - Created example flows for most device nodes
 - Added device config output to the msg object
 - Basic implementation of a OCPP 1.6 charge point and central system
@@ -17,10 +31,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Updated device node to reflect new firmware changes 
-
-### Removed
-
-- 
 
 ## [0.0.11] - 2018-01-25
 
