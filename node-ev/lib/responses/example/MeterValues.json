@@ -1,0 +1,18 @@
+{
+  "connectorId": 1,
+  "transactionId": 1,
+  "meterValue": [
+    {
+      "timestamp": "2018-01-30T14:33:14Z",
+      "sampledValue": [
+        {
+          "value": "4172.110",
+          "context": "Sample.Periodic",
+          "measurand": "Energy.Active.Import.Register",
+          "location": "Outlet",
+          "unit": "kWh"
+        }
+      ]
+    }
+  ]
+}'

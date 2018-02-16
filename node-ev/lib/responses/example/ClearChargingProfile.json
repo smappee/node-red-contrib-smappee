@@ -1,0 +1,11 @@
+{
+  "identity": "SMAP_0001",
+  "type": "response",
+  "messageTypeId": 3,
+  "uniqueId": "1445bac0-0bf4-11e8-986b-3fa607f3dc86",
+  "operation": "ClearChargingProfile",
+  "payload": {
+    "status": "Unknown"
+  },
+  "_msgid": "7d1e9852.ce3458"
+}

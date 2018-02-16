@@ -1,0 +1,23 @@
+{
+  "identity": "SMAP_0001",
+  "type": "response",
+  "messageTypeId": 3,
+  "uniqueId": "6bd0c880-0bf8-11e8-bc5d-2fa387e5aaa8",
+  "operation": "GetCompositeSchedule",
+  "payload": {
+    "status": "Accepted",
+    "connectorId": 1,
+    "scheduleStart": "2018-02-07T11:16:53Z",
+    "chargingSchedule": {
+      "duration": 300,
+      "chargingRateUnit": "A",
+      "chargingSchedulePeriod": [
+        {
+          "startPeriod": 0,
+          "limit": 16
+        }
+      ]
+    }
+  },
+  "_msgid": "52802a4e.99a4f4"
+}

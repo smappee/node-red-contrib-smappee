@@ -1,7 +1,7 @@
 {
-  "name": "@smappee/node-red-contrib-smappee-device",
+  "name": "@smappee/node-red-contrib-smappee-ev",
   "version": "0.0.12",
-  "description": "Collection of device nodes that provide input",
+  "description": "Electric vehicle nodes",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/smappee/node-red-contrib-smappee#readme",
@@ -15,23 +15,24 @@
   "keywords": [
     "node-red",
     "smappee",
-    "iot"
+    "iot",
+    "ocpp",
+    "chargepoint"
   ],
   "directories": {
     "lib": "./lib",
     "example": "./example"
   },
   "dependencies": {
-    "mqtt": "^2.15.0"
+    "moment": "^2.19.1",
+    "uuid": "^3.1.0",
+    "ws": "^3.2.0"
   },
   "node-red": {
     "nodes": {
-      "aggregated": "node-aggregated.js",
-      "device": "node-device.js",
-      "aggregated-switch": "node-aggregated-switch.js",
-      "plug-state": "node-plug-state.js",
-      "presence": "node-presence.js",
-      "realtime": "node-realtime.js"
+      "central-system-config": "node-central-system-config.js",
+      "charge-point": "node-charge-point.js",
+      "ocpp-request": "node-ocpp-request.js"
     }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "identity": "SMAP_0001",
+  "type": "response",
+  "messageTypeId": 3,
+  "uniqueId": "532a24c0-0be4-11e8-a7fd-6f938764c906",
+  "operation": "ClearCache",
+  "payload": {
+    "status": "Accepted"
+  },
+  "_msgid": "4d9ac082.fee94"
+}

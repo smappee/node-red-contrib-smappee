@@ -22,17 +22,17 @@
     "lib": "./lib",
     "example": "./example"
   },
+  "dependencies": {
+    "bytebuffer": "^5.0.1",
+    "knx": "^2.2.8",
+    "moment": "^2.19.4",
+    "numeral": "^2.0.6"
+  },
   "node-red": {
     "nodes": {
       "connection": "node-connection.js",
       "destination": "node-destination.js",
       "gateway": "node-gateway.js"
     }
-  },
-  "dependencies": {
-    "bytebuffer": "^5.0.1",
-    "knx": "^2.2.8",
-    "moment": "^2.19.4",
-    "numeral": "^2.0.6"
   }
 }

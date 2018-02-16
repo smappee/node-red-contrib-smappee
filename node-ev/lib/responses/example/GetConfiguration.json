@@ -1,0 +1,582 @@
+{
+  "identity": "SMAP_0001",
+  "type": "response",
+  "messageTypeId": 3,
+  "uniqueId": "be475790-0bdb-11e8-9e1f-57c58650bd00",
+  "operation": "GetConfiguration",
+  "payload": {
+    "configurationKey": [
+      {
+        "key": "HeartBeatInterval",
+        "readonly": false,
+        "value": "60"
+      },
+      {
+        "key": "ConnectionTimeOut",
+        "readonly": false,
+        "value": "120"
+      },
+      {
+        "key": "ResetRetries",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "LightIntensity",
+        "readonly": false,
+        "value": "100"
+      },
+      {
+        "key": "MeterValueSampleInterval",
+        "readonly": false,
+        "value": "60"
+      },
+      {
+        "key": "ClockAlignedDataInterval",
+        "readonly": false,
+        "value": "5"
+      },
+      {
+        "key": "MeterValuesSampledData",
+        "readonly": false,
+        "value": "Energy.Active.Import.Register"
+      },
+      {
+        "key": "MeterValuesAlignedData",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "StopTxnSampledData",
+        "readonly": true,
+        "value": ""
+      },
+      {
+        "key": "StopTxnAlignedData",
+        "readonly": true,
+        "value": ""
+      },
+      {
+        "key": "AllowOfflineTxForUnknownId",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "AuthorizationCacheEnabled",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "AuthorizeRemoteTxRequests",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "GetConfigurationMaxKeys",
+        "readonly": true,
+        "value": "35"
+      },
+      {
+        "key": "LocalAuthorizeOffline",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "LocalPreAuthorize",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "MaxEnergyOnInvalidId",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "MeterValuesAlignedDataMaxLength",
+        "readonly": true,
+        "value": "9"
+      },
+      {
+        "key": "MeterValuesSampledDataMaxLength",
+        "readonly": true,
+        "value": "9"
+      },
+      {
+        "key": "NumberOfConnectors",
+        "readonly": true,
+        "value": "1"
+      },
+      {
+        "key": "ConnectorPhaseRotation",
+        "readonly": true,
+        "value": "0.RST"
+      },
+      {
+        "key": "ConnectorPhaseRotationMaxLength",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "StopTransactionOnEVSideDisconnect",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "StopTransactionOnInvalidId",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "StopTxnAlignedDataMaxLength",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "StopTxnSampledDataMaxLength",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "SupportedFeatureProfiles",
+        "readonly": true,
+        "value": "Core,FirmwareManagement,Reservation,LocalAuthListManagement,RemoteTrigger,SmartCharging"
+      },
+      {
+        "key": "SupportedFeatureProfilesMaxLength",
+        "readonly": true,
+        "value": "6"
+      },
+      {
+        "key": "TransactionMessageAttempts",
+        "readonly": false,
+        "value": "0"
+      },
+      {
+        "key": "TransactionMessageRetryInterval",
+        "readonly": false,
+        "value": "60"
+      },
+      {
+        "key": "UnlockConnectorOnEVSideDisconnect",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "WebSocketPingInterval",
+        "readonly": false,
+        "value": "120"
+      },
+      {
+        "key": "LocalAuthListEnabled",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "LocalAuthListMaxLength",
+        "readonly": true,
+        "value": "782"
+      },
+      {
+        "key": "SendLocalListMaxLength",
+        "readonly": true,
+        "value": "22"
+      },
+      {
+        "key": "ReserveConnectorZeroSupported",
+        "readonly": true,
+        "value": "True"
+      },
+      {
+        "key": "ChargeProfileMaxStackLevel",
+        "readonly": true,
+        "value": "7"
+      },
+      {
+        "key": "ChargingScheduleAllowedChargingRateUnit",
+        "readonly": true,
+        "value": "Current"
+      },
+      {
+        "key": "ChargingScheduleMaxPeriods",
+        "readonly": true,
+        "value": "10"
+      },
+      {
+        "key": "ConnectorSwitch3to1PhaseSupported",
+        "readonly": true,
+        "value": "False"
+      },
+      {
+        "key": "MaxChargingProfilesInstalled",
+        "readonly": true,
+        "value": "21"
+      },
+      {
+        "key": "HeartBeatSendAllways",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "CentralMeterValueTransmissionMode",
+        "readonly": false,
+        "value": "during"
+      },
+      {
+        "key": "CentralMeterValueAlignment",
+        "readonly": false,
+        "value": "clock"
+      },
+      {
+        "key": "CentralMeterValueSampleInterval",
+        "readonly": false,
+        "value": "900"
+      },
+      {
+        "key": "AutoDimLights",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "AbortConcurrentTx",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "OfflineAuthorise",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "OnlineAuthorise",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "DisconnectAction",
+        "readonly": false,
+        "value": "Continue"
+      },
+      {
+        "key": "DisconnectTimeout",
+        "readonly": false,
+        "value": "10"
+      },
+      {
+        "key": "WhiteListEnabled",
+        "readonly": false,
+        "value": "True"
+      },
+      {
+        "key": "SendStationStatus",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "ZE-ready",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "ZE-restart",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "ContactorProtect",
+        "readonly": false,
+        "value": "60"
+      },
+      {
+        "key": "TimeUnlockWhenNotCharging",
+        "readonly": false,
+        "value": "0"
+      },
+      {
+        "key": "Identity",
+        "readonly": false,
+        "value": "SMAP_0001"
+      },
+      {
+        "key": "Language",
+        "readonly": false,
+        "value": "nl_NL"
+      },
+      {
+        "key": "TimeZoneMinutes",
+        "readonly": false,
+        "value": "60"
+      },
+      {
+        "key": "PlugAndChargeIdentifier",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "ProtocolName",
+        "readonly": true,
+        "value": "ocpp/json"
+      },
+      {
+        "key": "ProtocolVersion",
+        "readonly": false,
+        "value": "1.6"
+      },
+      {
+        "key": "BackOffice-URL-wired",
+        "readonly": false,
+        "value": "ws://192.168.0.40:1880"
+      },
+      {
+        "key": "BackOffice-Path-wired",
+        "readonly": false,
+        "value": "/ws/ocpp"
+      },
+      {
+        "key": "BackOffice-URL-APN",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "BackOffice-Path-APN",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "APN-Name",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "APN-User",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "APN-Password",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "APN-SignalStrength",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "Network",
+        "readonly": false,
+        "value": "wired"
+      },
+      {
+        "key": "DNS-1",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "DNS-2",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "WS timeout",
+        "readonly": false,
+        "value": "10"
+      },
+      {
+        "key": "OCPP-send timeout",
+        "readonly": false,
+        "value": "5"
+      },
+      {
+        "key": "OCPP-reply timeout",
+        "readonly": false,
+        "value": "100"
+      },
+      {
+        "key": "NuvveActive",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "NuvveInterval",
+        "readonly": false,
+        "value": "60"
+      },
+      {
+        "key": "NuvveTolerance",
+        "readonly": false,
+        "value": "100"
+      },
+      {
+        "key": "SmartChargingMode",
+        "readonly": false,
+        "value": "None"
+      },
+      {
+        "key": "Latitude",
+        "readonly": false,
+        "value": "52.400002"
+      },
+      {
+        "key": "Longitude",
+        "readonly": false,
+        "value": "5.240000"
+      },
+      {
+        "key": "Temperature",
+        "readonly": true,
+        "value": "11.1"
+      },
+      {
+        "key": "TemperatureLow",
+        "readonly": false,
+        "value": "-25.0"
+      },
+      {
+        "key": "TemperatureHigh",
+        "readonly": false,
+        "value": "70.0"
+      },
+      {
+        "key": "Station-MaxCurrent",
+        "readonly": false,
+        "value": "32.0"
+      },
+      {
+        "key": "Installation-MaxCurrent",
+        "readonly": false,
+        "value": "40.0"
+      },
+      {
+        "key": "Chameleon-MinCurrent",
+        "readonly": false,
+        "value": "14.0"
+      },
+      {
+        "key": "Safe-MaxCurrent",
+        "readonly": false,
+        "value": "40.0"
+      },
+      {
+        "key": "P1-Port",
+        "readonly": false,
+        "value": "Off"
+      },
+      {
+        "key": "LoadBalancing",
+        "readonly": false,
+        "value": "Off"
+      },
+      {
+        "key": "Phase-Connected",
+        "readonly": false,
+        "value": "L1L2L3"
+      },
+      {
+        "key": "StatusNotificationMode",
+        "readonly": false,
+        "value": "Normal"
+      },
+      {
+        "key": "Disable105Percent",
+        "readonly": false,
+        "value": "False"
+      },
+      {
+        "key": "Connector1-Type",
+        "readonly": false,
+        "value": "Type 2 socket"
+      },
+      {
+        "key": "Connector1-PhasesConnected",
+        "readonly": true,
+        "value": "L1L2L3"
+      },
+      {
+        "key": "Connector1-InputPhases",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "Connector1-OutputPhases",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "Connector1-MaxCurrent",
+        "readonly": false,
+        "value": "32.0"
+      },
+      {
+        "key": "Connector1-ActualPower",
+        "readonly": true,
+        "value": "0.00"
+      },
+      {
+        "key": "RCDDelayTime",
+        "readonly": false,
+        "value": "1"
+      },
+      {
+        "key": "FeatureUniqueId",
+        "readonly": true,
+        "value": "12103686884249868"
+      },
+      {
+        "key": "FeatureCode",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "FeatureEnabled",
+        "readonly": true,
+        "value": "0"
+      },
+      {
+        "key": "SCN-NetworkName",
+        "readonly": false,
+        "value": ""
+      },
+      {
+        "key": "SCN-SocketID",
+        "readonly": false,
+        "value": "0"
+      },
+      {
+        "key": "SCN-SocketCount",
+        "readonly": false,
+        "value": "1"
+      },
+      {
+        "key": "SCN-AlternatingPeriod",
+        "readonly": false,
+        "value": "360"
+      },
+      {
+        "key": "SCN-TotalStaticCurrent",
+        "readonly": false,
+        "value": "200.000000"
+      },
+      {
+        "key": "SCN-SafeCurrent",
+        "readonly": false,
+        "value": "6.000000"
+      },
+      {
+        "key": "SCN-PhaseMapping-1",
+        "readonly": false,
+        "value": "4"
+      },
+      {
+        "key": "SCN-PhaseMapping-2",
+        "readonly": false,
+        "value": "4"
+      },
+      {
+        "key": "MaxTxMeterValueRandomisationTime",
+        "readonly": false,
+        "value": "60"
+      }
+    ]
+  },
+  "_msgid": "aed7fb67.e67938"
+}

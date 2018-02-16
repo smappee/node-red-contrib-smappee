@@ -1,0 +1,18 @@
+{
+  "connectorId": 1,
+  "csChargingProfiles": {
+    "chargingProfileId": 1,
+    "stackLevel": 0,
+    "chargingProfilePurpose": "TxDefaultProfile",
+    "chargingProfileKind": "Absolute",
+    "chargingSchedule": {
+      "chargingRateUnit": "A",
+      "chargingSchedulePeriod": [
+        {
+          "startPeriod": 0,
+          "limit": 1
+        }
+      ]
+    }
+  }
+}

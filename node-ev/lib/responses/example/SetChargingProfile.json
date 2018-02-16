@@ -1,0 +1,11 @@
+{
+  "identity": "SMAP_0001",
+  "type": "response",
+  "messageTypeId": 3,
+  "uniqueId": "6aec8300-0bf8-11e8-bc5d-2fa387e5aaa8",
+  "operation": "SetChargingProfile",
+  "payload": {
+    "status": "Accepted"
+  },
+  "_msgid": "61fa5ab.9484ea4"
+}

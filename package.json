@@ -29,6 +29,9 @@
       "plug-state": "node-device/node-plug-state.js",
       "presence": "node-device/node-presence.js",
       "realtime": "node-device/node-realtime.js",
+      "central-system-config": "node-ev/node-central-system-config.js",
+      "charge-point": "node-ev/node-charge-point.js",
+      "ocpp-request": "node-ev/node-ocpp-request.js",
       "connection": "node-knx/node-connection.js",
       "destination": "node-knx/node-destination.js",
       "gateway": "node-knx/node-gateway.js"

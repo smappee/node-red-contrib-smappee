@@ -1,0 +1,144 @@
+<script type="text/x-red" data-template-name="ocpp-request">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-request"><i class="fa fa-tasks"></i> <span>Action</span></label>
+    <select id="node-input-request" style="width:70%">
+      <option value="" disabled selected hidden>Select your request</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label>&nbsp;</label>
+    <input type="checkbox" id="node-input-useInput" style="vertical-align:baseline; width:auto;">
+    <label for="node-input-useInput" style="width:auto;">Use input <code>msg.payload</code> as payload</label>
+  </div>
+
+  <div class="form-row" style="margin-bottom: 0px;" id="node-input-payload-wrapper">
+    <label for="node-input-payload"><i class="fa fa-wrench"></i> <span>Payload</span></label>
+    <input type="hidden" id="node-input-payload" autofocus="autofocus">
+  </div>
+
+  <div class="form-row node-text-editor-row">
+    <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-payload-editor"></div>
+  </div>
+
+  <div class="form-tips">
+    <span>
+      See the <a href="http://www.openchargealliance.org/protocols/ocpp/ocpp-16/">OCPP 1.6 specification</a>
+      for each request's payload format
+    </span>
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="ocpp-request">
+    <p>Template node</p>
+</script>
+
+<script type="text/javascript">
+  const requests = [
+    'CancelReservation',
+    'ChangeAvailability',
+    'ChangeConfiguration',
+    'ClearCache',
+    'ClearChargingProfile',
+    'DataTransfer',
+    'GetCompositeSchedule',
+    'GetConfiguration',
+    'GetDiagnostics',
+    'GetLocalListVersion',
+    'RemoteStartTransaction',
+    'RemoteStopTransaction',
+    'ReserveNow',
+    'Reset',
+    'SendLocalList',
+    'SetChargingProfile',
+    'TriggerMessage',
+    'UnlockConnector',
+    'UpdateFirmware'
+  ]
+
+  function oneditprepare () {
+    // Add all requests to the selection list
+    const $requestSelect = $('#node-input-request')
+
+    for (let i = 0; i < requests.length; i++) {
+      $requestSelect.append($('<option>', {
+        value: requests[i],
+        text: requests[i]
+      }))
+    }
+
+    // Set the previously selected request
+    $requestSelect.val(this.request)
+
+    // Hide the editor if the input value is used, and set the inputs to 1 if checked
+    const $useInputCheckbox = $('#node-input-useInput')
+    $useInputCheckbox.change(function () {
+      const useInput = $useInputCheckbox.prop('checked')
+      $('#node-input-payload-wrapper').toggle(!useInput)
+      $('#node-input-payload-editor').toggle(!useInput)
+    }).change()
+
+    // Bind the JSON editor
+    this.editor = RED.editor.createEditor({
+      id: 'node-input-payload-editor',
+      mode: 'ace/mode/json',
+      value: $('#node-input-payload').val()
+    })
+
+    this.editor.focus()
+  }
+
+  function oneditsave () {
+    $('#node-input-payload').val(this.editor.getValue())
+    this.editor.destroy()
+    delete this.editor
+  }
+
+  function oneditcancel () {
+    this.editor.destroy()
+    delete this.editor
+  }
+
+  function oneditresize () {
+    const rows = $('#dialog-form>div:not(.node-text-editor-row)')
+    let height = $('#dialog-form').height()
+
+    for (let i = 0; i < rows.size(); i++) {
+      height -= $(rows[i]).outerHeight(true)
+    }
+
+    const editorRow = $('#dialog-form>div.node-text-editor-row')
+    height -= (parseInt(editorRow.css('marginTop')) + parseInt(editorRow.css('marginBottom')))
+    $('.node-text-editor').css('height', height + 'px')
+    this.editor.resize()
+  }
+
+  RED.nodes.registerType('ocpp-request', {
+    category: 'smappee ev',
+    color: '#99c031',
+    defaults: {
+      name: {value: ''},
+      request: {value: '', required: true},
+      useInput: {value: false},
+      payload: {value: '{}'}
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'bridge-dash.png',
+    label: function () {
+      return this.name || 'ocpp request' + (this.request ? `:${this.request}` : '')
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    },
+    oneditprepare: oneditprepare,
+    oneditsave: oneditsave,
+    oneditcancel: oneditcancel,
+    oneditresize: oneditresize
+  })
+</script>

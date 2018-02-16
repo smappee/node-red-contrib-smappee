@@ -8,7 +8,7 @@ const os = require('os')
 const dir = resolve(__dirname, '../')
 
 function run (commands, options) {
-  console.info(`Starting '${commands.join(' ')}'...`,)
+  console.info(`Starting '${commands.join(' ')}'...`)
 
   return new Promise((resolve, reject) => {
     // Install child packages

@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Created example flows for most device nodes
 - Added device config output to the msg object
+- Basic implementation of a OCPP 1.6 charge point and central system
+- OCPP 1.6 nodes for sending requests to a charge point or central system
   
 ### Changed
 

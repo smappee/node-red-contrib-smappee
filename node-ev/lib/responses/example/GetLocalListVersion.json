@@ -1,0 +1,11 @@
+{
+  "identity": "SMAP_0001",
+  "type": "response",
+  "messageTypeId": 3,
+  "uniqueId": "88d5fa50-0bde-11e8-abb2-bf2498441724",
+  "operation": "GetLocalListVersion",
+  "payload": {
+    "listVersion": 0
+  },
+  "_msgid": "84fcf049.8e6a3"
+}
