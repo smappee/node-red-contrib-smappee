@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Documentation and references for the electric vehicle nodes
-- Support for KNX data point types 7, 8, 9, 10, and 11 has been added
+- 
   
 ### Changed
 
@@ -19,6 +18,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 
 - 
+
+## [0.0.14] - 2018-02-20
+
+### Changed
+
+- Minor changes to naming that were noticed too late after release
+
+## [0.0.13] - 2018-02-20
+
+### Added
+
+- Documentation and references for the electric vehicle nodes
+- Support for KNX data point types 7, 8, 9, 10, and 11 has been added
 
 ## [0.0.12] - 2018-02-16
 
