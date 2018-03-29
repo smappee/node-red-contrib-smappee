@@ -1,0 +1,56 @@
+{
+  "utcTimeStamp": 152026137331,
+  "inputChannels": [
+    {
+      "ctInput": 0,
+      "name": "Grid - Phase 1",
+      "phase": 0,
+      "inputChannelType": "CONSUMPTION",
+      "inputChannelConnection": "GRID",
+      "reversed": true,
+      "nilm": true,
+      "balanced": false,
+      "inputChannelCTType": "CT50_100_200"
+    },
+    {
+      "ctInput": 1,
+      "name": "Grid - Phase 2",
+      "phase": 1,
+      "inputChannelType": "CONSUMPTION",
+      "inputChannelConnection": "GRID",
+      "reversed": true,
+      "nilm": true,
+      "balanced": false,
+      "inputChannelCTType": "CT50_100_200"
+    },
+    {
+      "ctInput": 2,
+      "name": "Grid - Phase 3",
+      "phase": 2,
+      "inputChannelType": "CONSUMPTION",
+      "inputChannelConnection": "GRID",
+      "reversed": true,
+      "nilm": true,
+      "balanced": false,
+      "inputChannelCTType": "CT50_100_200"
+    },
+    {
+      "ctInput": 3,
+      "name": "Solar - Phase 1",
+      "phase": 0,
+      "inputChannelType": "PRODUCTION",
+      "inputChannelConnection": "GRID",
+      "reversed": true,
+      "nilm": false,
+      "balanced": false,
+      "inputChannelCTType": "CT50_100_200",
+    {
+      "ctInput": 4,
+      "name": "Solar - Phase 2",
+      "phase": 1,
+      "inputChannelType": "PRODUCTION",
+      "inputChannelConnection": "GRID",
+      "reversed": true,
+      "nilm": false,
+      "balanced": false
+      "inputChannelCTTyp...

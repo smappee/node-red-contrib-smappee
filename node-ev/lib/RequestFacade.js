@@ -52,7 +52,7 @@ class RequestFacade {
 
   // noinspection JSMethodCanBeStatic,JSUnusedGlobalSymbols
   handleStartTransaction (request) {
-    const expiryDate = moment().add(7, 'days')
+    const expiryDate = moment().add(30, 'days')
 
     return {
       transactionId: 1,
@@ -70,7 +70,7 @@ class RequestFacade {
 
   // noinspection JSMethodCanBeStatic,JSUnusedGlobalSymbols
   handleStopTransaction (request) {
-    const expiryDate = moment().add(7, 'days')
+    const expiryDate = moment().add(30, 'days')
 
     return {
       idTagInfo: {

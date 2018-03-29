@@ -1,0 +1,97 @@
+{
+  "intervalDatas": [
+    {
+      "utcEndtime": 1520262300000,
+      "averageRMSVoltages": [
+        2360,
+        2363,
+        2345
+      ],
+      "alwaysOn": 59287,
+      "channelIntervalDatas": [
+        {
+          "averageRMSCurrent": 811,
+          "averageImportRMSActivePower": 60430,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 110787,
+          "averageRMSReactivePower": 92853,
+          "averagePowerfactor": 53,
+          "ctInput": 0
+        },
+        {
+          "averageRMSCurrent": 515,
+          "averageImportRMSActivePower": 27749,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 70455,
+          "averageRMSReactivePower": 64759,
+          "averagePowerfactor": 38,
+          "ctInput": 1
+        },
+        {
+          "averageRMSCurrent": 628,
+          "averageImportRMSActivePower": 66808,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 85240,
+          "averageRMSReactivePower": 52936,
+          "averagePowerfactor": 77,
+          "ctInput": 2
+        },
+        {
+          "averageRMSCurrent": 3354,
+          "averageImportRMSActivePower": 391970,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 457383,
+          "averageRMSReactivePower": 235668,
+          "averagePowerfactor": 84,
+          "ctInput": 3
+        },
+        {
+          "averageRMSCurrent": 3355,
+          "averageImportRMSActivePower": 397756,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 458241,
+          "averageRMSReactivePower": 227531,
+          "averagePowerfactor": 85,
+          "ctInput": 4
+        },
+        {
+          "averageRMSCurrent": 32,
+          "averageImportRMSActivePower": 2241,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 4587,
+          "averageRMSReactivePower": 4001,
+          "averagePowerfactor": 42,
+          "ctInput": 5
+        },
+        {
+          "averageRMSCurrent": 30,
+          "averageImportRMSActivePower": 0,
+          "averageExportRMSActivePower": 2159,
+          "averageRMSApparentPower": 4254,
+          "averageRMSReactivePower": 3665,
+          "averagePowerfactor": 46,
+          "ctInput": 6
+        },
+        {
+          "averageRMSCurrent": 17,
+          "averageImportRMSActivePower": 1166,
+          "averageExportRMSActivePower": 0,
+          "averageRMSApparentPower": 2511,
+          "averageRMSReactivePower": 2222,
+          "averagePowerfactor": 38,
+          "ctInput": 7
+        },
+        {
+          "averageRMSCurrent": 18,
+          "averageImportRMSActivePower": 0,
+          "averageExportRMSActivePower": 1201,
+          "averageRMSApparentPower": 2646,
+          "averageRMSReactivePower": 2356,
+          "averagePowerfactor": 36,
+          "ctInput": 8
+        }
+      ],
+      "version": 2
+    }
+  ]
+}

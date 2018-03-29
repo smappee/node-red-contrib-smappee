@@ -1,0 +1,18 @@
+{
+  "utcTimeStamp": 1520261398304,
+  "switchActuators": [],
+  "smartplugActuators": [
+    {
+      "nodeId": 1,
+      "name": "Plug A"
+    },
+    {
+      "nodeId": 2,
+      "name": "Plug B"
+    },
+    {
+      "nodeId": 3,
+      "name": "Plug C"
+    }
+  ]
+}

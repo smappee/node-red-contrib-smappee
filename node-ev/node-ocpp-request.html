@@ -35,7 +35,27 @@
 </script>
 
 <script type="text/x-red" data-help-name="ocpp-request">
-    <p>Template node</p>
+  <p>OCPP request that can be sent to a charge point.</p>
+  <h3>Properties</h3>
+  <h4>Name</h4>
+  <p>Type in a node name manually or keep the default name.</p>
+  <h4>Action</h4>
+  <p>Select an OCPP action to send via the request object.
+  Check the option to use the <code>msg.payload</code> value for the payload.</p>
+  <h4>Payload</h4>
+  <p>JSON representation of the request payload according to the
+  <a href="http://www.openchargealliance.org/protocols/ocpp/ocpp-16/">OCPP 1.6 specification</a>.</p>
+  <h3>Inputs</h3>
+  <p>Send input through <code>msg.payload</code> values.</p>
+  <dl class="message-properties">
+    <dt class="optional">payload <span class="property-type">string | object</span></dt>
+    <dd>Optional payload input.</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <p>Formatted request object for a charge point node.</p>
+  <h3>Details</h3>
+  <p>Supports OCPP version 1.6 requests.</p>
+  <p><b>Note:</b> Please contact <a href="mailto:support@smappee.com">support@smappee.com</a> if you are having issues.</p>
 </script>
 
 <script type="text/javascript">

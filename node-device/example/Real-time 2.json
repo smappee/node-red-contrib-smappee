@@ -1,0 +1,96 @@
+{
+  "totalPower": 157,
+  "totalReactivePower": 209,
+  "totalExportEnergy": 0,
+  "totalImportEnergy": 54635,
+  "monitorStatus": 0,
+  "utcTimeStamp": 1520261724794,
+  "channelPowers": [
+    {
+      "ctInput": 0,
+      "power": 62,
+      "exportEnergy": 0,
+      "importEnergy": 21541,
+      "phaseId": 0,
+      "current": 8
+    },
+    {
+      "ctInput": 1,
+      "power": 28,
+      "exportEnergy": 0,
+      "importEnergy": 9524,
+      "phaseId": 1,
+      "current": 5
+    },
+    {
+      "ctInput": 2,
+      "power": 68,
+      "exportEnergy": 0,
+      "importEnergy": 23627,
+      "phaseId": 2,
+      "current": 6
+    },
+    {
+      "ctInput": 3,
+      "power": 404,
+      "exportEnergy": 0,
+      "importEnergy": 130228,
+      "phaseId": 0,
+      "current": 35
+    },
+    {
+      "ctInput": 4,
+      "power": 409,
+      "exportEnergy": 0,
+      "importEnergy": 132264,
+      "phaseId": 1,
+      "current": 35
+    },
+    {
+      "ctInput": 5,
+      "power": 2,
+      "exportEnergy": 0,
+      "importEnergy": 682,
+      "phaseId": 1,
+      "current": 0
+    },
+    {
+      "ctInput": 6,
+      "power": -2,
+      "exportEnergy": 682,
+      "importEnergy": 0,
+      "phaseId": 2,
+      "current": 0
+    },
+    {
+      "ctInput": 7,
+      "power": 1,
+      "exportEnergy": 0,
+      "importEnergy": 341,
+      "phaseId": 1,
+      "current": 0
+    },
+    {
+      "ctInput": 8,
+      "power": -1,
+      "exportEnergy": 341,
+      "importEnergy": 0,
+      "phaseId": 2,
+      "current": 0
+    }
+  ],
+  "voltages": [
+    {
+      "voltage": 236,
+      "phaseId": 0
+    },
+    {
+      "voltage": 236,
+      "phaseId": 1
+    },
+    {
+      "voltage": 234,
+      "phaseId": 2
+    }
+  ]
+}

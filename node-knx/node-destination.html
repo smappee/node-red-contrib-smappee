@@ -33,7 +33,27 @@
 </script>
 
 <script type="text/x-red" data-help-name="destination">
-  <p>Template node</p>
+  <p>Destination for a KNX device to send messages to.</p>
+  <h3>Properties</h3>
+  <h4>Gateway</h4>
+  <p>KNX gateway to connect to.</p>
+  <h4>Destination</h4>
+  <p>Destination address to send messages to.</p>
+  <h4>DPT</h4>
+  <p>Data point type of the sent message.</p>
+  <h4>Name</h4>
+  <p>Type in a node name manually or keep the default name.</p>
+  <h3>Inputs</h3>
+  <p>Send input through <code>msg.payload</code> values.</p>
+  <dl class="message-properties">
+    <dt>payload <span class="property-type">string | object</span></dt>
+    <dd>Optional payload input .</dd>
+  </dl>
+  <h3>Outputs</h3>
+  <p>Formatted request object for a charge point node.</p>
+  <h3>Details</h3>
+  <p>Supports most data point types for KNX. Formatting the message correctly for the DPT is required.</p>
+  <p><b>Note:</b> Please contact <a href="mailto:support@smappee.com">support@smappee.com</a> if you are having issues.</p>
 </script>
 
 <script type="text/javascript">
