@@ -1,59 +1,53 @@
+const http = require('http')
 const WebSocket = require('ws')
 const RequestFacade = require('./RequestFacade')
 
 // Supported protocols
-const protocol = 'ocpp1.6'
+const PROTOCOL_ONE_POINT_SIX = 'ocpp1.6'
+const TYPE_REQUEST = 'request'
+const TYPE_RESPONSE = 'response'
 
 class CentralSystem {
 
-  constructor (node, path, RED) {
+  constructor (node, options) {
     this.node = node
-    this.path = path
-    this.RED = RED;
-    this.protocols = [protocol]
+    this.options = options
+    this.protocols = [PROTOCOL_ONE_POINT_SIX]
     this.facade = new RequestFacade(node)
     this.chargePointNodes = new Map()
     this.servers = new Map()
     this.sockets = new Map()
     this.requests = new Map()
-    this.serverListeners = {}
+
+    // Server instance
+    this.server = http.createServer(function (req, res) {
+      app(req, res)
+    })
   }
 
   registerChargePoint (identity, node) {
-    const RED = this.RED;
-
     // Save node for output and logging
     this.chargePointNodes.set(identity, node)
+    this.statusForIdentity(identity, {fill: 'grey', shape: 'ring', text: 'connecting'})
 
     // Check if a server is already open for identity
     if (this.servers.get(identity)) {
       return
     }
 
-    const storeListener = function (event, listener) {
-      if (event === 'error' || event === 'upgrade' || event === 'listening') {
-        this.serverListeners[event] = listener
-      }
-    }.bind(this)
+    // Destructure options
+    const {path, port, ...extras} = this.options
 
-    RED.server.addListener('newListener', storeListener)
-
-    // Create options object
+    // Create new options
     const options = {
-      server: RED.server,
-      path: `${this.path}/${identity}`,
-    }
-
-    if (RED.settings.webSocketNodeVerifyClient) {
-      options.verifyClient = RED.settings.webSocketNodeVerifyClient;
+      path: `${path}/${identity}`,
+      port: parseInt(port),
+      server: this.server,
+      ...extras,
     }
 
     // Create a new WebSocket server and open it
     const server = new WebSocket.Server(options)
-
-    // Workaround https://github.com/einaros/ws/pull/253
-    // Stop listening for new listener events
-    RED.server.removeListener('newListener', storeListener)
 
     server.on('error', this.handleError.bind(this, identity))
     server.on('connection', this.handleConnection.bind(this, identity))
@@ -126,11 +120,24 @@ class CentralSystem {
     socket.on('message', this.handleMessage.bind(this, identity))
 
     // Output connection status
+    this.statusForIdentity(identity, {fill: 'green', shape: 'dot', text: 'connected'})
     this.logForIdentity(identity, `Connection opened to '${identity}'`)
   }
 
+  getNodeForIdentity (identity) {
+    return this.chargePointNodes.get(identity)
+  }
+
+  statusForIdentity (identity, status) {
+    const node = this.getNodeForIdentity(identity)
+
+    if (node) {
+      node.status(status)
+    }
+  }
+
   sendForIdentity (identity, message) {
-    const node = this.chargePointNodes.get(identity)
+    const node = this.getNodeForIdentity(identity)
 
     if (node) {
       node.send(message)
@@ -138,7 +145,7 @@ class CentralSystem {
   }
 
   logForIdentity (identity, message) {
-    const node = this.chargePointNodes.get(identity)
+    const node = this.getNodeForIdentity(identity)
 
     if (node) {
       node.log(message)
@@ -181,12 +188,13 @@ class CentralSystem {
     const socket = this.sockets.get(identity)
     const {operation, payload} = request
 
-    // Log incoming message for that specific charge point
+    // Output request for charge point
     this.logForIdentity(identity, `Request received for '${operation}' from '${identity}': ${JSON.stringify(payload)}'`)
 
-    // Output log message
+    // Format message
     let output = `A response was not sent for '${operation}' to '${identity}' since the connection has been closed`
 
+    // Determine action
     if (socket && socket.readyState === WebSocket.OPEN) {
       if (response) {
         socket.send(JSON.stringify(response))
@@ -198,15 +206,21 @@ class CentralSystem {
       }
     }
 
+    // Log and send payload
     this.logForIdentity(identity, output)
+    this.sendForIdentity(identity, {
+      type: TYPE_REQUEST,
+      operation,
+      payload,
+    })
   }
 
-  handleResponse (identity, response) {
-    const {operation} = response
-    this.sendForIdentity(identity, response)
+  handleResponse (identity, payload) {
+    const {operation} = payload
 
-    // Output log message
-    this.logForIdentity(identity, `Response received for '${operation}' from '${identity}': ${JSON.stringify(response)}`)
+    // Log and send payload
+    this.logForIdentity(identity, `Response received for '${operation}' from '${identity}': ${JSON.stringify(payload)}`)
+    this.sendForIdentity(identity, payload)
   }
 
   interpretMessage (identity, message) {

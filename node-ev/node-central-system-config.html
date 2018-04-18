@@ -5,6 +5,11 @@
   </div>
 
   <div class="form-row">
+      <label for="node-config-input-port"><i class="fa fa-random"></i> <span>Port</span></label>
+      <input type="text" id="node-config-input-port" placeholder="9999">
+  </div>
+
+  <div class="form-row">
     <label for="node-config-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
     <input type="text" id="node-config-input-name" placeholder="Name">
   </div>
@@ -15,6 +20,8 @@
   <h3>Properties</h3>
   <h4>Path</h4>
   <p>Path to listen to OCPP connections, which is then suffixed by the charge point identity.</p>
+  <h4>Port</h4>
+  <p>Port for OCPP connections, should be an unused port.</p>
   <h4>Name</h4>
   <p>Type in a node name manually or keep the default name.</p>
 </script>
@@ -24,7 +31,8 @@
     category: 'config',
     defaults: {
       name: {value: ''},
-      path: {value: '', required: true},
+      path: {value: '/smappee/ocpp', required: true},
+      port: {value: 4430, required: true},
     },
     label: function () {
       return this.name || 'central system' + (this.path ? `:${this.path}` : '')

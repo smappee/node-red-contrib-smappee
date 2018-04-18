@@ -7,6 +7,7 @@ module.exports = function (RED) {
     const node = this
 
     node.path = config.path
+    node.port = config.port
     node.name = config.name
 
     // Prefix path with a slash if necessary
@@ -17,8 +18,17 @@ module.exports = function (RED) {
     // Remove trailing slashes
     node.path = node.path.replace(/\/+$/, '')
 
+    const options = {
+      path: node.path,
+      port: node.port,
+    }
+
+    if (RED.settings.webSocketNodeVerifyClient) {
+      options.verifyClient = RED.settings.webSocketNodeVerifyClient
+    }
+
     // Create a central system only once
-    node.centralSystem = new CentralSystem(node, node.path, RED)
+    node.centralSystem = new CentralSystem(node, options)
   }
 
   RED.nodes.registerType('central-system-config', CentralSystemConfigNode)
