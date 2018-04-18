@@ -6,32 +6,55 @@ const protocol = 'ocpp1.6'
 
 class CentralSystem {
 
-  constructor (node, options) {
+  constructor (node, path, RED) {
     this.node = node
-    this.options = options
+    this.path = path
+    this.RED = RED;
     this.protocols = [protocol]
     this.facade = new RequestFacade(node)
     this.chargePointNodes = new Map()
     this.servers = new Map()
     this.sockets = new Map()
     this.requests = new Map()
+    this.serverListeners = {}
   }
 
   registerChargePoint (identity, node) {
+    const RED = this.RED;
+
     // Save node for output and logging
     this.chargePointNodes.set(identity, node)
-
-    // Create new options object
-    const options = Object.assign({}, this.options)
-    options.path = `${options.path}/${identity}`
 
     // Check if a server is already open for identity
     if (this.servers.get(identity)) {
       return
     }
 
+    const storeListener = function (event, listener) {
+      if (event === 'error' || event === 'upgrade' || event === 'listening') {
+        this.serverListeners[event] = listener
+      }
+    }.bind(this)
+
+    RED.server.addListener('newListener', storeListener)
+
+    // Create options object
+    const options = {
+      server: RED.server,
+      path: `${this.path}/${identity}`,
+    }
+
+    if (RED.settings.webSocketNodeVerifyClient) {
+      options.verifyClient = RED.settings.webSocketNodeVerifyClient;
+    }
+
     // Create a new WebSocket server and open it
     const server = new WebSocket.Server(options)
+
+    // Workaround https://github.com/einaros/ws/pull/253
+    // Stop listening for new listener events
+    RED.server.removeListener('newListener', storeListener)
+
     server.on('error', this.handleError.bind(this, identity))
     server.on('connection', this.handleConnection.bind(this, identity))
     this.servers.set(identity, server)

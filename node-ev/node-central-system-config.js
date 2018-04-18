@@ -17,17 +17,8 @@ module.exports = function (RED) {
     // Remove trailing slashes
     node.path = node.path.replace(/\/+$/, '')
 
-    const options = {
-      path: node.path,
-      server: RED.server,
-    }
-
-    if (RED.settings.webSocketNodeVerifyClient) {
-      options.verifyClient = RED.settings.webSocketNodeVerifyClient
-    }
-
     // Create a central system only once
-    node.centralSystem = new CentralSystem(node, options)
+    node.centralSystem = new CentralSystem(node, node.path, RED)
   }
 
   RED.nodes.registerType('central-system-config', CentralSystemConfigNode)
