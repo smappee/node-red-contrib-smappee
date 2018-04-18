@@ -13,11 +13,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   
 ### Changed
 
-- Updated documentation for EV and KNX nodes
+- 
 
 ### Removed
 
 - 
+
+## [0.0.15] - 2018-04-18
+  
+### Changed
+
+- Updated documentation for EV and KNX nodes
+- Separated the OCPP central system connection to have its own port
 
 ## [0.0.14] - 2018-02-20
 
