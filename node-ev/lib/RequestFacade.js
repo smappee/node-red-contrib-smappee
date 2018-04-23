@@ -39,6 +39,18 @@ class RequestFacade {
   }
 
   // noinspection JSMethodCanBeStatic,JSUnusedGlobalSymbols
+  handleAuthorize (request) {
+    const expiryDate = moment().add(30, 'days')
+
+    return {
+      idTagInfo: {
+        status: 'Accepted',
+        expiryDate: expiryDate.toISOString()
+      }
+    }
+  }
+
+  // noinspection JSMethodCanBeStatic,JSUnusedGlobalSymbols
   handleHeartbeat (request) {
     return {
       currentTime: new Date().toISOString()
