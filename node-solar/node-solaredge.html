@@ -1,0 +1,74 @@
+<script type="text/x-red" data-template-name="solaredge">
+  <div class="form-row">
+    <label for="node-input-site"><i class="fa fa-globe"></i> <span>Site</span></label>
+    <input type="text" id="node-input-site">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-endpoint"><i class="fa fa-tasks"></i> <span>Endpoint</span></label>
+    <select id="node-input-endpoint" style="width:70%">
+      <option value="apiVersion">API version</option>
+      <!--<option value="accounts">Accounts</option>--> <!-- Seems to be forbidden -->
+      <option value="components">Components</option>
+      <option value="currentPowerFlow">Current power flow</option>
+      <option value="dataPeriod">Data period</option>
+      <option value="details">Details</option>
+      <option value="energy">Energy</option>
+      <option value="energyDetails">Energy details</option>
+      <!--<option value="timeFrameEnergy">Energy time frame</option>--> <!-- TODO Enable after fixing server error -->
+      <option value="envBenefits">Environmental benefits</option>
+      <option value="inventory">Inventory</option>
+      <option value="overview">Overview</option>
+      <option value="power">Power</option>
+      <option value="powerDetails">Power details</option>
+      <option value="sensors">Sensors</option>
+      <option value="sensorsData">Sensors data</option>
+      <option value="sites">Sites</option>
+      <option value="storageData">Storage data</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="solaredge">
+  <p>Connection to the SolarEdge API.</p>
+  <h3>Properties</h3>
+  <h4>Site</h4>
+  <p>SolarEdge site to connect to.</p>
+  <h4>Endpoint</h4>
+  <p>Endpoint to request from of the SolarEdge API.</p>
+  <h4>Name</h4>
+  <p>Type in a node name manually or keep the default name.</p>
+  <h3>Inputs</h3>
+  <p>Triggers a call to the SolarEdge API, which has a daily 300 call limit.</p>
+  <h3>Outputs</h3>
+  <p>Output received from the SolarEdge API.</p>
+  <h3>Details</h3>
+  <p>This node can be used to fetch data from the SolarEdge API.</p>
+  <p><b>Note:</b> Please contact <a href="mailto:support@smappee.com">support@smappee.com</a> if you are having issues.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('solaredge', {
+    category: 'smappee solar',
+    color: '#99c031',
+    defaults: {
+      name: {value: ''},
+      site: {value: '', required: true, type: 'solaredge-site-config'},
+      endpoint: {value: 'overview', required: true},
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'inject.png',
+    label: function () {
+      return this.name || `SolarEdge${this.endpoint ? `:${this.endpoint}` : ''}`
+    },
+    labelStyle: function () {
+      return this.name ? 'node_label_italic' : ''
+    }
+  })
+</script>

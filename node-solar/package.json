@@ -1,7 +1,7 @@
 {
-  "name": "@smappee/node-red-contrib-smappee-ev",
+  "name": "@smappee/node-red-contrib-smappee-solar",
   "version": "0.0.17",
-  "description": "Electric vehicle nodes",
+  "description": "Solar nodes",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/smappee/node-red-contrib-smappee#readme",
@@ -16,23 +16,19 @@
     "node-red",
     "smappee",
     "iot",
-    "ocpp",
-    "chargepoint"
+    "solar",
+    "solaredge"
   ],
   "directories": {
-    "lib": "./lib",
     "example": "./example"
   },
   "dependencies": {
-    "moment": "^2.21.0",
-    "uuid": "^3.1.0",
-    "ws": "^3.2.0"
+    "moment": "^2.19.4"
   },
   "node-red": {
     "nodes": {
-      "central-system-config": "node-central-system-config.js",
-      "charge-point": "node-charge-point.js",
-      "ocpp-request": "node-ocpp-request.js"
+      "solaredge": "node-solaredge.js",
+      "solaredge-site-config": "node-solaredge-site.js"
     }
   }
 }

@@ -9,15 +9,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- 
+- New package node-solar added with a node for supporting SolarEdge API calls
   
 ### Changed
 
-- 
+- Added automatic acceptance of authorize requests
 
 ### Removed
 
 - 
+
+## [0.0.16] - 2018-04-23
+  
+### Changed
+
+- Added automatic acceptance of authorize requests for OCPP 1.6
 
 ## [0.0.15] - 2018-04-18
   
