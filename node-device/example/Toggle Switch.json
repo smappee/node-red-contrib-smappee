@@ -74,7 +74,7 @@
   },
   {
     "id": "c72a3a43.c3f568",
-    "type": "plug-config",
+    "type": "switch-config",
     "z": "",
     "name": "My Switch",
     "uuid": "1"

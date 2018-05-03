@@ -4,15 +4,15 @@
   "smartplugActuators": [
     {
       "nodeId": 1,
-      "name": "Plug A"
+      "name": "Switch A"
     },
     {
       "nodeId": 2,
-      "name": "Plug B"
+      "name": "Switch B"
     },
     {
       "nodeId": 3,
-      "name": "Plug C"
+      "name": "Switch C"
     }
   ]
 }

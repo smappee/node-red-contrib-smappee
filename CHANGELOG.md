@@ -19,6 +19,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.1.0] - 2018-05-03
+  
+### Changed
+
+- Bumped to official first 0.1.0 release after remainder of Smappee Switch renaming
+
+## [0.0.19] - 2018-05-03
+  
+### Changed
+
+- Continued refactoring of plug state to Switch state
+
 ## [0.0.18] - 2018-05-03
   
 ### Changed

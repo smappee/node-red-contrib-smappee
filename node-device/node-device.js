@@ -73,11 +73,11 @@ module.exports = function (RED) {
   RED.nodes.registerType('device-config', DeviceConfigNode)
 
   /**
-   * Plug config node
+   * Switch config node
    * @param config
    * @constructor
    */
-  function PlugConfigNode (config) {
+  function SwitchConfigNode (config) {
     RED.nodes.createNode(this, config)
     const node = this
 
@@ -85,7 +85,7 @@ module.exports = function (RED) {
     node.name = config.name
   }
 
-  RED.nodes.registerType('plug-config', PlugConfigNode)
+  RED.nodes.registerType('switch-config', SwitchConfigNode)
 
   /**
    * Device node

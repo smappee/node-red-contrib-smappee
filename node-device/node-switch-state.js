@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-  function PlugStateNode (config) {
+  function SwitchStateNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -34,5 +34,5 @@ module.exports = function (RED) {
     }
   }
 
-  RED.nodes.registerType('switch-state', PlugStateNode)
+  RED.nodes.registerType('switch-state', SwitchStateNode)
 }

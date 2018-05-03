@@ -45,11 +45,11 @@
   })
 </script>
 
-<!-- Node 'plug-config' -->
+<!-- Node 'switch-config' -->
 
-<script type="text/x-red" data-template-name="plug-config">
+<script type="text/x-red" data-template-name="switch-config">
   <div class="form-row">
-    <label for="node-config-input-uuid"><i class="fa fa-tag"></i> <span>Plug ID</span></label>
+    <label for="node-config-input-uuid"><i class="fa fa-tag"></i> <span>Switch ID</span></label>
     <input type="text" id="node-config-input-uuid">
   </div>
 
@@ -59,23 +59,23 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="plug-config">
-    <p>A configuration node for a plug.</p>
-    <h3>Plug ID</h3>
-    <p>Identifier of the plug, starts with 1 if you only have a single plug. Increments with 1 per plug you have configured.</p>
+<script type="text/x-red" data-help-name="switch-config">
+    <p>A configuration node for a Smappee Switch.</p>
+    <h3>Switch ID</h3>
+    <p>Identifier of the Smappee Switch, starts with 1 if you only have a single Smappee Switch. Increments with 1 per Smappee Switch you have configured.</p>
     <h3>Name</h3>
-    <p>Type in the name of the plug manually or keep the default name.</p>
+    <p>Type in the name of the Smappee Switch manually or keep the default name.</p>
 </script>
 
 <script type="text/javascript">
-  RED.nodes.registerType('plug-config', {
+  RED.nodes.registerType('switch-config', {
     category: 'config',
     defaults: {
       name: {value: ''},
       uuid: {value: '', required: true}
     },
     label: function () {
-      return this.name || 'plug:' + this.uuid
+      return this.name || 'switch:' + this.uuid
     },
     labelStyle: function () {
       return this.name ? 'node_label_italic' : ''
