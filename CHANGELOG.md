@@ -9,15 +9,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- 
+  
+### Changed
+
+- 
+
+### Removed
+
+- 
+
+## [0.0.17] - 2018-05-03
+
+### Added
+
 - New package node-solar added with a node for supporting SolarEdge API calls
   
 ### Changed
 
 - Added automatic acceptance of authorize requests
-
-### Removed
-
-- 
 
 ## [0.0.16] - 2018-04-23
   
