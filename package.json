@@ -1,6 +1,6 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
@@ -26,7 +26,7 @@
       "aggregated": "node-device/node-aggregated.js",
       "aggregated-switch": "node-device/node-aggregated-switch.js",
       "device": "node-device/node-device.js",
-      "plug-state": "node-device/node-plug-state.js",
+      "switch-state": "node-device/node-switch-state.js",
       "presence": "node-device/node-presence.js",
       "realtime": "node-device/node-realtime.js",
       "central-system-config": "node-ev/node-central-system-config.js",

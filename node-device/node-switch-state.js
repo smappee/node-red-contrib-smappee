@@ -34,5 +34,5 @@ module.exports = function (RED) {
     }
   }
 
-  RED.nodes.registerType('plug-state', PlugStateNode)
+  RED.nodes.registerType('switch-state', PlugStateNode)
 }

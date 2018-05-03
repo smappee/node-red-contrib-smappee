@@ -1,4 +1,4 @@
-<script type="text/x-red" data-template-name="plug-state">
+<script type="text/x-red" data-template-name="switch-state">
   <div class="form-row">
     <label for="node-input-device"><i class="fa fa-globe"></i> <span>Smappee</span></label>
     <input type="text" id="node-input-device">
@@ -15,7 +15,7 @@
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="plug-state">
+<script type="text/x-red" data-help-name="switch-state">
   <p>A node to change and read the state of a plug (e.g. on or off).</p>
   <h3>Inputs</h3>
   <p>Send input through <code>msg.payload</code> values:</p>
@@ -42,7 +42,7 @@
 </script>
 
 <script type="text/javascript">
-  RED.nodes.registerType('plug-state', {
+  RED.nodes.registerType('switch-state', {
     category: 'smappee device',
     color: '#99c031',
     defaults: {

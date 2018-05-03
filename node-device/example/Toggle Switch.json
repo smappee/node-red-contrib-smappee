@@ -1,7 +1,7 @@
 [
   {
     "id": "81075140.3188f",
-    "type": "plug-state",
+    "type": "switch-state",
     "z": "689abf4d.e907e",
     "name": "State",
     "device": "4bfc6828.9e8548",

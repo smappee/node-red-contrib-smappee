@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.0.18] - 2018-05-03
+  
+### Changed
+
+- Renamed the plug state to Switch state to make it less generic
+
 ## [0.0.17] - 2018-05-03
 
 ### Added
