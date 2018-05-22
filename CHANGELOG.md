@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.1.1] - 2018-05-22
+
+### Changed
+
+- Fix for excluded solaredge-site-config node
+
 ## [0.1.0] - 2018-05-03
   
 ### Changed
