@@ -1,109 +1,112 @@
-const NodeConnection = require('./lib/NodeConnection')
+const NodeConnection = require('./lib/NodeConnection');
 
-module.exports = function (RED) {
+module.exports = function(RED) {
 
   /**
    * Device config node
    * @param config
    * @constructor
    */
-  function DeviceConfigNode (config) {
-    RED.nodes.createNode(this, config)
-    const node = this
+  function DeviceConfigNode(config) {
+    RED.nodes.createNode(this, config);
+    const node = this;
 
-    node.serial = config.serial
-    node.host = config.host || `Smappee${node.serial}.local`
-    node.uuid = config.uuid
-    node.name = config.name
+    node.serial = config.serial;
+    node.host = config.host || `Smappee${node.serial}.local`;
+    node.uuid = config.uuid;
+    node.name = config.name;
 
     // Create a MQTT connection only once per device
-    node.connection = new NodeConnection(node, `ws://${node.host}:1884/mqtt`, RED)
+    node.connection = new NodeConnection(node, `ws://${node.host}:1884/mqtt`,
+      RED);
 
     // Wait for a host connection
     const hostPromise = new Promise((resolve, reject) => {
-      node.connection.connect(function () {
-        resolve(node.host)
-      }.bind(node))
-    })
+      node.connection.connect(function() {
+        resolve(node.host);
+      }.bind(node));
+    });
 
     // Retrieve the service location UUID from the configuration
     const uuidPromise = new Promise((resolve, reject) => {
-      const topic = `servicelocation/+/config`
+      const topic = `servicelocation/+/config`;
       const handler = (message) => {
-        node.connection.unsubscribe(topic, this)
-        const uuid = message['config'] ? message['config']['serviceLocationUuid'] : message['serviceLocationUuid']
+        node.connection.unsubscribe(topic, this);
+        const uuid = message['config'] ?
+          message['config']['serviceLocationUuid'] :
+          message['serviceLocationUuid'];
 
         if (uuid) {
-          node.uuid = uuid
-          resolve(uuid)
+          node.uuid = uuid;
+          resolve(uuid);
         } else {
-          reject('No service location UUID configured on the device')
+          reject('No service location UUID configured on the device');
         }
-      }
+      };
 
-      node.connection.subscribe(topic, handler)
-    })
+      node.connection.subscribe(topic, handler);
+    });
 
     // Functions that pass everything to the connection object
     node.subscribe = (topic, handler) => {
       hostPromise.then((host) => {
         uuidPromise.then((uuid) => {
-          node.connection.subscribe(`servicelocation/${uuid}/${topic}`, handler)
+          node.connection.subscribe(`servicelocation/${uuid}/${topic}`, handler);
         }).catch((err) => {
-          node.log('Failed to retrieve device UUID')
-        })
+          node.log('Failed to retrieve device UUID');
+        });
       }).catch(() => {
-        node.log('Failed to retrieve device host')
-      })
-    }
+        node.log('Failed to retrieve device host');
+      });
+    };
 
     node.publish = (topic, message) => {
       hostPromise.then((host) => {
         uuidPromise.then((uuid) => {
-          node.connection.publish(`servicelocation/${uuid}/${topic}`, message)
+          node.connection.publish(`servicelocation/${uuid}/${topic}`, message);
         }).catch(() => {
-          node.log('Failed to retrieve device UUID')
-        })
+          node.log('Failed to retrieve device UUID');
+        });
       }).catch(() => {
-        node.log('Failed to retrieve device host')
-      })
-    }
+        node.log('Failed to retrieve device host');
+      });
+    };
   }
 
-  RED.nodes.registerType('device-config', DeviceConfigNode)
+  RED.nodes.registerType('device-config', DeviceConfigNode);
 
   /**
    * Switch config node
    * @param config
    * @constructor
    */
-  function SwitchConfigNode (config) {
-    RED.nodes.createNode(this, config)
-    const node = this
+  function SwitchConfigNode(config) {
+    RED.nodes.createNode(this, config);
+    const node = this;
 
-    node.uuid = config.uuid
-    node.name = config.name
+    node.uuid = config.uuid;
+    node.name = config.name;
   }
 
-  RED.nodes.registerType('switch-config', SwitchConfigNode)
+  RED.nodes.registerType('switch-config', SwitchConfigNode);
 
   /**
    * Device node
    * @param config
    * @constructor
    */
-  function DeviceNode (config) {
-    RED.nodes.createNode(this, config)
+  function DeviceNode(config) {
+    RED.nodes.createNode(this, config);
 
-    const node = this
-    const device = RED.nodes.getNode(config.device)
+    const node = this;
+    const device = RED.nodes.getNode(config.device);
 
     if (device) {
       // Setup a subscriber to the device's config topic
-      device.subscribe(`config`, node)
+      device.subscribe(`config`, node);
     }
   }
 
-  RED.nodes.registerType('device', DeviceNode)
+  RED.nodes.registerType('device', DeviceNode);
 
-}
+};

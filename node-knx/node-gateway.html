@@ -39,13 +39,13 @@
       name: {value: ''},
       host: {value: '224.0.23.12', required: true},
       port: {value: 3671, required: true, validate: RED.validators.number()},
-      useTunneling: {value: false}
+      useTunneling: {value: false},
     },
-    label: function () {
-      return this.name || `gateway:${host}:${port}`
+    label: function() {
+      return this.name || `gateway:${host}:${port}`;
     },
-    labelStyle: function () {
-      return this.name ? 'node_label_italic' : ''
-    }
-  })
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    },
+  });
 </script>

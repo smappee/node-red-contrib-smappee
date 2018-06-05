@@ -1,24 +1,24 @@
-module.exports = function (RED) {
-  function SwitchStateNode (config) {
-    RED.nodes.createNode(this, config)
+module.exports = function(RED) {
+  function SwitchStateNode(config) {
+    RED.nodes.createNode(this, config);
 
-    const node = this
-    node.device = RED.nodes.getNode(config.device)
-    node.plug = RED.nodes.getNode(config.plug)
+    const node = this;
+    node.device = RED.nodes.getNode(config.device);
+    node.plug = RED.nodes.getNode(config.plug);
 
     if (node.device && node.plug) {
       // Setup a subscriber to the plug's state topic
-      node.device.subscribe(`plug/${node.plug.uuid}/state`, node)
+      node.device.subscribe(`plug/${node.plug.uuid}/state`, node);
 
       // Listen to inputs
-      node.on('input', function (msg) {
+      node.on('input', function(msg) {
         if (msg.hasOwnProperty('payload')) {
-          const payload = msg.payload
-          let onState = typeof payload === 'object' ? payload.on : undefined
+          const payload = msg.payload;
+          let onState = typeof payload === 'object' ? payload.on : undefined;
 
           // Support boolean payloads
           if (payload === true || payload === false) {
-            onState = payload
+            onState = payload;
           }
 
           // Publish the on or off message
@@ -26,13 +26,13 @@ module.exports = function (RED) {
             node.device.publish(`plug/${node.plug.uuid}/setstate`, {
               value: onState ? 'ON' : 'OFF',
               since: new Date().getTime(),
-              nodeId: node.plug.uuid
-            })
+              nodeId: node.plug.uuid,
+            });
           }
         }
-      }.bind(node))
+      }.bind(node));
     }
   }
 
-  RED.nodes.registerType('switch-state', SwitchStateNode)
-}
+  RED.nodes.registerType('switch-state', SwitchStateNode);
+};

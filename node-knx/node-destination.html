@@ -64,16 +64,16 @@
       name: {value: ''},
       gateway: {value: '', required: true, type: 'gateway-config'},
       destination: {value: '', required: true},
-      dpt: {value: '0', required: true}
+      dpt: {value: '0', required: true},
     },
     inputs: 1,
     outputs: 0,
     icon: 'inject.png',
-    label: function () {
-      return this.name || 'destination:' + (this.destination ? this.destination : '')
+    label: function() {
+      return this.name || 'destination:' + (this.destination ? this.destination : '');
     },
-    labelStyle: function () {
-      return this.name ? 'node_label_italic' : ''
-    }
-  })
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    },
+  });
 </script>

@@ -1,33 +1,37 @@
-module.exports = function (RED) {
-  function ChargePointNode (config) {
-    RED.nodes.createNode(this, config)
-    const node = this
+module.exports = function(RED) {
+  function ChargePointNode(config) {
+    RED.nodes.createNode(this, config);
+    const node = this;
 
-    node.systemNode = RED.nodes.getNode(config.centralSystem)
-    node.name = config.name
+    node.systemNode = RED.nodes.getNode(config.centralSystem);
+    node.name = config.name;
 
-    const centralSystem = node.systemNode ? node.systemNode.centralSystem : null
-    const identity = config.identity
+    console.log(config.centralSystem);
+
+    const centralSystem = node.systemNode ?
+      node.systemNode.centralSystem :
+      null;
+    const identity = config.identity;
 
     if (centralSystem && identity) {
       // Register charge point
-      centralSystem.registerChargePoint(identity, node)
+      centralSystem.registerChargePoint(identity, node);
 
       // Send a request on input
-      node.on('input', function (msg) {
-        const request = msg.payload
+      node.on('input', function(msg) {
+        const request = msg.payload;
 
         if (request) {
-          centralSystem.sendChargePointRequest(identity, request)
+          centralSystem.sendChargePointRequest(identity, request);
         }
-      }.bind(this))
+      }.bind(this));
 
       // Close connection on closing
-      node.on('close', function () {
-        centralSystem.deregisterChargePoint(identity)
-      }.bind(this))
+      node.on('close', function() {
+        centralSystem.deregisterChargePoint(identity);
+      }.bind(this));
     }
   }
 
-  RED.nodes.registerType('charge-point', ChargePointNode)
-}
+  RED.nodes.registerType('charge-point', ChargePointNode);
+};

@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.1.2] - 2018-06-05
+
+### Changed
+
+- Started using the Google JavaScript Style Guide to avoid automatic semicolon insertion issues
+
 ## [0.1.1] - 2018-05-22
 
 ### Changed

@@ -1,32 +1,32 @@
-module.exports = function (RED) {
+module.exports = function(RED) {
 
-  function ConnectionNode (config) {
-    RED.nodes.createNode(this, config)
+  function ConnectionNode(config) {
+    RED.nodes.createNode(this, config);
 
-    const node = this
-    const gateway = RED.nodes.getNode(config.gateway)
+    const node = this;
+    const gateway = RED.nodes.getNode(config.gateway);
 
     if (gateway) {
-      node.status({fill: 'grey', shape: 'ring', text: 'connecting'})
+      node.status({fill: 'grey', shape: 'ring', text: 'connecting'});
 
-      const handler = function (message) {
-        node.status({fill: 'green', shape: 'dot', text: 'connected'})
+      const handler = function(message) {
+        node.status({fill: 'green', shape: 'dot', text: 'connected'});
 
         node.send({
-          payload: message
-        })
-      }
+          payload: message,
+        });
+      };
 
       const criteria = {
         source: config.source,
         destination: config.destination,
-        value: config.value
-      }
+        value: config.value,
+      };
 
-      gateway.subscribe(handler, criteria)
+      gateway.subscribe(handler, criteria);
     }
   }
 
-  RED.nodes.registerType('connection', ConnectionNode)
+  RED.nodes.registerType('connection', ConnectionNode);
 
-}
+};

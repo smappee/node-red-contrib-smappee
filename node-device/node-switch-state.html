@@ -48,17 +48,17 @@
     defaults: {
       name: {value: ''},
       device: {value: '', required: true, type: 'device-config'},
-      plug: {value: '', required: true, type: 'switch-config'}
+      plug: {value: '', required: true, type: 'switch-config'},
     },
     inputs: 1,
     outputs: 1,
     icon: 'arrow-in.png',
-    label: function () {
-      const plug = RED.nodes.node(this.plug)
-      return this.name || 'switch' + (plug ? ':' + plug.uuid : '')
+    label: function() {
+      const plug = RED.nodes.node(this.plug);
+      return this.name || 'switch' + (plug ? ':' + plug.uuid : '');
     },
-    labelStyle: function () {
-      return this.name ? 'node_label_italic' : ''
-    }
-  })
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    },
+  });
 </script>
