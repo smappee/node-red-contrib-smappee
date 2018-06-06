@@ -1,8 +1,8 @@
-const CentralSystem = require('./lib/CentralSystem');
+const ChargeSystem = require('./lib/ChargeSystem');
 
 module.exports = function(RED) {
 
-  function CentralSystemConfigNode(config) {
+  function ChargeSystemConfigNode(config) {
     RED.nodes.createNode(this, config);
     const node = this;
 
@@ -13,8 +13,8 @@ module.exports = function(RED) {
     // Prefix path with a slash if necessary
     let nodePath = RED.settings.httpNodeRoot || '/';
     nodePath = nodePath + (nodePath.slice(-1) === '/' ? '' : '/');
-    node.path = nodePath +
-      (config.path.charAt(0) === '/' ? config.path.substring(1) : config.path);
+    node.path = nodePath
+      + (config.path.charAt(0) === '/' ? config.path.substring(1) : config.path);
 
     // Remove trailing slashes
     node.path = node.path.replace(/\/+$/, '');
@@ -28,9 +28,9 @@ module.exports = function(RED) {
       options.verifyClient = RED.settings.webSocketNodeVerifyClient;
     }
 
-    // Create a central system only once
-    node.centralSystem = new CentralSystem(node, options);
+    // Create a charge system only once
+    node.chargeSystem = new ChargeSystem(node, options);
   }
 
-  RED.nodes.registerType('central-system-config', CentralSystemConfigNode);
+  RED.nodes.registerType('charge-system-config', ChargeSystemConfigNode);
 };

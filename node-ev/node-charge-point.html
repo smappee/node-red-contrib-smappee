@@ -1,7 +1,7 @@
 <script type="text/x-red" data-template-name="charge-point">
   <div class="form-row">
-    <label for="node-input-centralSystem"><i class="fa fa-dot-circle-o"></i> <span>Central system</span></label>
-    <input type="text" id="node-input-centralSystem">
+    <label for="node-input-chargeSystem"><i class="fa fa-dot-circle-o"></i> <span>Charge system</span></label>
+    <input type="text" id="node-input-chargeSystem">
   </div>
 
   <div class="form-row">
@@ -32,7 +32,7 @@
     color: '#99c031',
     defaults: {
       name: {value: ''},
-      centralSystem: {value: '', required: true, type: 'central-system-config'},
+      chargeSystem: {value: '', required: true, type: 'charge-system-config'},
       identity: {value: '', required: true},
     },
     inputs: 1,

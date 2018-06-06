@@ -1,15 +1,15 @@
-const messageTypeId = 3
+const messageTypeId = 3;
 
 class MessageBuilder {
 
-  static response (uniqueId, payload) {
+  static response(uniqueId, payload) {
     return [
       messageTypeId,
       uniqueId,
-      payload
-    ]
+      payload,
+    ];
   }
 
 }
 
-module.exports = MessageBuilder
+module.exports = MessageBuilder;

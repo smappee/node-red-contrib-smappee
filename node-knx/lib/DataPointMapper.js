@@ -1,28 +1,28 @@
-const ByteBuffer = require('bytebuffer')
-const numeral = require('numeral')
+const ByteBuffer = require('bytebuffer');
+const numeral = require('numeral');
 
 // Datapoint types
-const dptUnknown = '0.xxx' // Unofficial type
-const dptBooleanData = '1.xxx'
-const dpt1BitWithPriorityControl = '2.xxx'
-const dpt3BitWithControl = '3.xxx'
-const dptCharacterSet = '4.xxx'
-const dpt8BitWithoutSign = '5.xxx'
-const dpt8BitWithSign = '6.xxx'
-const dpt2OctetWithoutSign = '7.xxx'
-const dpt2OctetWithSign = '8.xxx'
-const dpt2OctetFloatingPointNumber = '9.xxx'
-const dptTime = '10.xxx'
-const dptDate = '11.xxx'
-const dpt4OctetWithoutSign = '12.xxx'
-const dpt4OctetWithSign = '13.xxx'
-const dpt4OctetFloatingPointNumber = '14.xxx'
-const dptAccessControl = '15.xxx'
-const dptCharacterString = '16.xxx'
-const dptSceneNumber = '17.xxx'
-const dptSceneControl = '18.xxx'
-const dptDateTime = '19.xxx'
-const dptHvac = '20.xxx'
+const dptUnknown = '0.xxx'; // Unofficial type
+const dptBooleanData = '1.xxx';
+const dpt1BitWithPriorityControl = '2.xxx';
+const dpt3BitWithControl = '3.xxx';
+const dptCharacterSet = '4.xxx';
+const dpt8BitWithoutSign = '5.xxx';
+const dpt8BitWithSign = '6.xxx';
+const dpt2OctetWithoutSign = '7.xxx';
+const dpt2OctetWithSign = '8.xxx';
+const dpt2OctetFloatingPointNumber = '9.xxx';
+const dptTime = '10.xxx';
+const dptDate = '11.xxx';
+const dpt4OctetWithoutSign = '12.xxx';
+const dpt4OctetWithSign = '13.xxx';
+const dpt4OctetFloatingPointNumber = '14.xxx';
+const dptAccessControl = '15.xxx';
+const dptCharacterString = '16.xxx';
+const dptSceneNumber = '17.xxx';
+const dptSceneControl = '18.xxx';
+const dptDateTime = '19.xxx';
+const dptHvac = '20.xxx';
 
 /**
  1.yyy = boolean, like switching, move up/down, step
@@ -122,72 +122,72 @@ NNNNNNNN
 
 class DatapointMapper {
 
-  static getDptResult (value) {
-    const binaryData = []
-    const buffer = ByteBuffer.wrap(value)
+  static getDptResult(value) {
+    const binaryData = [];
+    const buffer = ByteBuffer.wrap(value);
 
     for (let byte of buffer.buffer) {
-      const binaryByte = numeral((byte).toString(2)).format('00000000')
-      binaryData.push(binaryByte)
+      const binaryByte = numeral((byte).toString(2)).format('00000000');
+      binaryData.push(binaryByte);
     }
 
     const rawBinary = {
-      binary: binaryData.join('')
-    }
+      binary: binaryData.join(''),
+    };
 
-    let output = {}
+    let output = {};
 
     switch (value.length) {
       case 1:
-        output = DatapointMapper.format1ByteResult(binaryData)
-        break
+        output = DatapointMapper.format1ByteResult(binaryData);
+        break;
       case 2:
-        output = DatapointMapper.format2BytesResult(binaryData)
-        break
+        output = DatapointMapper.format2BytesResult(binaryData);
+        break;
       case 3:
-        output = DatapointMapper.format3BytesResult(binaryData)
-        break
+        output = DatapointMapper.format3BytesResult(binaryData);
+        break;
       case 4:
-        output = DatapointMapper.format4BytesResult(binaryData)
-        break
+        output = DatapointMapper.format4BytesResult(binaryData);
+        break;
       case 8:
-        output = DatapointMapper.format8BytesResult(binaryData)
-        break
+        output = DatapointMapper.format8BytesResult(binaryData);
+        break;
       case 14:
-        output = DatapointMapper.format14BytesResult(binaryData)
-        break
+        output = DatapointMapper.format14BytesResult(binaryData);
+        break;
       default:
-        console.log(`Unmapped length: ${length}`)
-        break
+        console.log(`Unmapped length: ${length}`);
+        break;
     }
 
     // return Object.assign(rawBinary, output)
-    return binaryData.join(' ')
+    return binaryData.join(' ');
   }
 
   static format1ByteResult(binaryData) {
-    const data = binaryData[0]
-    const result = {}
+    const data = binaryData[0];
+    const result = {};
 
     // Boolean data
     // rrrrrrrB
     result['booleanData'] = {
-      b: parseInt(data[7], 2)
-    }
+      b: parseInt(data[7], 2),
+    };
 
     // 1 bit with priority control
     // rrrrrrBB
     result['1BitWithPriorityControl'] = {
       c: parseInt(data[6], 2),
-      v: parseInt(data[7], 2)
-    }
+      v: parseInt(data[7], 2),
+    };
 
     // 3 bit with control
     // rrrrBUUU
     result['3BitWithControl'] = {
       c: parseInt(data[4], 2),
-      stepCode: parseInt(data.substr(5), 2)
-    }
+      stepCode: parseInt(data.substr(5), 2),
+    };
 
     // Character set
     // AAAAAAAA
@@ -195,8 +195,8 @@ class DatapointMapper {
     // 8 bit without sign
     // UUUUUUUU
     result['8BitWithoutSign'] = {
-      value: parseInt(data, 2)
-    }
+      value: parseInt(data, 2),
+    };
 
     // 8 bit with sign
     // VVVVVVVV
@@ -204,27 +204,27 @@ class DatapointMapper {
     // Scene number
     // rrUUUUUU
     result['sceneNumber'] = {
-      value: parseInt(data.substr(2), 2)
-    }
+      value: parseInt(data.substr(2), 2),
+    };
 
     // Scene control
     // BrUUUUUU
     result['sceneControl'] = {
       C: parseInt(data[0], 2),
-      sceneNumber: parseInt(data.substr(2), 2)
-    }
+      sceneNumber: parseInt(data.substr(2), 2),
+    };
 
     // Common HVAC datapoint types
     // NNNNNNNN
     result['hvac'] = {
-      value: parseInt(data, 2)
-    }
+      value: parseInt(data, 2),
+    };
 
-    return result
+    return result;
   }
 
   static format2BytesResult(binaryData) {
-    const result = {}
+    const result = {};
 
     // 2 octet without sign
     // UUUUUUUU UUUUUUUU
@@ -235,11 +235,11 @@ class DatapointMapper {
     // 2 octet floating point number
     // MEEEEMMM MMMMMMMM
 
-    return result
+    return result;
   }
 
   static format3BytesResult(binaryData) {
-    const result = {}
+    const result = {};
 
     // Time
     // NNNUUUUU rrUUUUUU rrUUUUUU
@@ -247,11 +247,11 @@ class DatapointMapper {
     // Date
     // rrrUUUUU rrrrUUUU rUUUUUUU
 
-    return result
+    return result;
   }
 
-  static format4BytesResult (value) {
-    const result = {}
+  static format4BytesResult(value) {
+    const result = {};
 
     // 4 octet without sign
     // UUUUUUUU UUUUUUUU UUUUUUUU UUUUUUUU
@@ -265,74 +265,77 @@ class DatapointMapper {
     // Access control
     // UUUUUUUU UUUUUUUU UUUUUUUU bbbbNNNN
 
-    return result
+    return result;
   }
 
   static format8BytesResult(binaryData) {
-    const result = {}
+    const result = {};
 
     // Date + time
     // UUUUUUUU rrrrUUUU rrrUUUUU UUUUUUUU rrUUUUUU rrUUUUUU BBBBBBBB Brrrrrrr
 
-    return result
+    return result;
   }
 
   static format14BytesResult(binaryData) {
-    const result = {}
+    const result = {};
 
     // Character string
     // AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA
 
-    return result
+    return result;
   }
 
-  static getValueForDatapointType (value, dpt) {
-    const buffer = ByteBuffer.wrap(value)
+  static getValueForDatapointType(value, dpt) {
+    const buffer = ByteBuffer.wrap(value);
 
-    let result = value
+    let result = value;
 
     switch (dpt) {
       case dptBooleanData:
-        result = buffer.readByte()
+        result = buffer.readByte();
 
         // Only parse values
         if (result === 0 || result === 1) {
-          value = result === 1
+          value = result === 1;
         } else {
-          console.log(`Unknown value for boolean: ${result}`)
+          console.log(`Unknown value for boolean: ${result}`);
         }
 
-        break
+        break;
       case dptTime:
         // Format the numbers as binary
-        const time1 = numeral((buffer.readByte(0)).toString(2)).format('00000000')
-        const time2 = numeral((buffer.readByte(1)).toString(2)).format('00000000')
-        const time3 = numeral((buffer.readByte(2)).toString(2)).format('00000000')
+        const time1 = numeral((buffer.readByte(0)).toString(2)).
+          format('00000000');
+        const time2 = numeral((buffer.readByte(1)).toString(2)).
+          format('00000000');
+        const time3 = numeral((buffer.readByte(2)).toString(2)).
+          format('00000000');
 
-        value = `${time1} ${time2} ${time3}`
-        break
+        value = `${time1} ${time2} ${time3}`;
+        break;
       case dpt2OctetFloatingPointNumber:
-        result = buffer.readInt16()
+        result = buffer.readInt16();
 
-        value = result
-        break
+        value = result;
+        break;
       case dpt4OctetFloatingPointNumber:
-        result = buffer.readFloat32(0)
+        result = buffer.readFloat32(0);
 
-        value = result
-        break
+        value = result;
+        break;
       case dptUnknown:
       // Fallthrough
       default:
         // TODO Is a generic read possible?
 
-        return value
-        break
+        return value;
+        break;
     }
 
-    return value
+    return value;
   }
 
 }
 
-module.exports = DatapointMapper
+module.exports = DatapointMapper;

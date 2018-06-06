@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.1.3] - 2018-06-06
+
+### Changed
+
+- Refactored the EV `central-system-config` to `charge-system-config` to increase consistency
+- Minor reformatting based on the newly adopted style guide
+
 ## [0.1.2] - 2018-06-05
 
 ### Changed

@@ -1,49 +1,49 @@
-const mqtt = require('mqtt')
+const mqtt = require('mqtt');
 
 class MqttClient {
-  constructor (host) {
-    this.broker = host
-    this.connecting = false
+  constructor(host) {
+    this.broker = host;
+    this.connecting = false;
   }
 
-  connect (callback = undefined) {
+  connect(callback = undefined) {
     if (this.isActive()) {
       // Execute the callback immediately because
-      callback()
-      return
+      callback();
+      return;
     } else if (this.isConnecting()) {
       // Add the callback listener and return because the connection is being established
-      this.client(on, 'connect', callback)
-      return
+      this.client(on, 'connect', callback);
+      return;
     }
 
     this.client = mqtt.connect(this.broker, {
-      clientId: 'node-red-' + Math.random().toString(16).substr(2, 8)
-    })
+      clientId: 'node-red-' + Math.random().toString(16).substr(2, 8),
+    });
 
     // Set the client to connecting
-    this.connecting = true
-    this.client.on('connect', function () {
-      this.connecting = false
-    }.bind(this))
+    this.connecting = true;
+    this.client.on('connect', function() {
+      this.connecting = false;
+    }.bind(this));
 
     // Add the required callback
-    this.client.on('connect', callback)
+    this.client.on('connect', callback);
 
-    this.client.on('message', function (topic, message) {
-      this.handleJsonMessage.call(this, topic, message)
-    }.bind(this))
+    this.client.on('message', function(topic, message) {
+      this.handleJsonMessage.call(this, topic, message);
+    }.bind(this));
   }
 
-  disconnect () {
+  disconnect() {
     if (this.client && this.client.connected) {
-      this.client.end()
+      this.client.end();
     }
   }
 
-  handleJsonMessage (topic, message) {
-    const json = JSON.parse(message.toString())
-    this.handleMessage(topic, json)
+  handleJsonMessage(topic, message) {
+    const json = JSON.parse(message.toString());
+    this.handleMessage(topic, json);
   }
 
   /**
@@ -51,45 +51,46 @@ class MqttClient {
    * @param topic
    * @param message
    */
-  handleMessage (topic, message) {
+  handleMessage(topic, message) {
     // Implemented by subclasses.
   }
 
-  subscribe (topic, options = null, callback = null) {
-    this.client.subscribe(topic, options, callback)
+  subscribe(topic, options = null, callback = null) {
+    this.client.subscribe(topic, options, callback);
   }
 
-  publish (topic, message = '{}') {
+  publish(topic, message = '{}') {
     if (typeof message === 'object') {
-      message = JSON.stringify(message)
+      message = JSON.stringify(message);
     }
 
-    this.client.publish(topic, message)
+    this.client.publish(topic, message);
   }
 
-  isActive () {
-    return (this.isConnected() && !this.isDisconnecting()) || this.isConnecting()
+  isActive() {
+    return (this.isConnected() && !this.isDisconnecting()) ||
+      this.isConnecting();
   }
 
-  isConnected () {
+  isConnected() {
     if (this.client) {
-      return this.client.connected
+      return this.client.connected;
     }
 
-    return false
+    return false;
   }
 
-  isConnecting () {
-    return this.client && this.connecting
+  isConnecting() {
+    return this.client && this.connecting;
   }
 
-  isDisconnecting () {
+  isDisconnecting() {
     if (this.client) {
-      return this.client.disconnecting
+      return this.client.disconnecting;
     }
 
-    return false
+    return false;
   }
 }
 
-module.exports = MqttClient
+module.exports = MqttClient;
