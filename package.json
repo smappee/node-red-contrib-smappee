@@ -1,6 +1,6 @@
 {
   "name": "@smappee/node-red-contrib-smappee",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Smappee Node-RED contains Smappee nodes and example flows",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
@@ -29,7 +29,6 @@
       "switch-state": "node-device/node-switch-state.js",
       "presence": "node-device/node-presence.js",
       "realtime": "node-device/node-realtime.js",
-      "charge-system-config": "node-ev/node-charge-system-config.js",
       "charge-point": "node-ev/node-charge-point.js",
       "ocpp-request": "node-ev/node-ocpp-request.js",
       "connection": "node-knx/node-connection.js",

@@ -19,6 +19,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.1.4] - 2018-06-06
+
+### Changed
+
+- Merged the `charge-system-config` and `charge-point` nodes to avoid loading issues
+
+### Removed
+- Separate `charge-system-config` node deleted in process of merging
+
 ## [0.1.3] - 2018-06-06
 
 ### Changed
