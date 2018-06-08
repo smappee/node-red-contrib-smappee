@@ -19,6 +19,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - 
 
+## [0.1.7] - 2018-06-08
+  
+### Removed
+
+- Removed object spread properties so pre-8.6.0 Node.js versions can be used
+
+## [0.1.6] - 2018-06-06
+
+### Changed
+
+- Trial-and-error tests and changes to support older Node.js versions
+
+## [0.1.5] - 2018-06-06
+
+### Changed
+
+- Trial-and-error tests and changes to support older Node.js versions
+
 ## [0.1.4] - 2018-06-06
 
 ### Changed

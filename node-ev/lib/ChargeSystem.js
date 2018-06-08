@@ -37,14 +37,14 @@ class ChargeSystem {
     }
 
     // Destructure options
-    const {path, port, ...extras} = this.options;
+    const {path, port, verifyClient} = this.options;
 
     // Create new options
     const options = {
       path: `${path}/${identity}`,
       port: parseInt(port),
       server: this.server,
-      ...extras,
+      verifyClient,
     };
 
     // Create a new WebSocket server and open it

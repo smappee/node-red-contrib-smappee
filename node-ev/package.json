@@ -1,6 +1,6 @@
 {
   "name": "@smappee/node-red-contrib-smappee-ev",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "description": "Electric vehicle nodes",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
@@ -30,6 +30,7 @@
   },
   "node-red": {
     "nodes": {
+      "charge-system-config": "node-charge-system-config.js",
       "charge-point": "node-charge-point.js",
       "ocpp-request": "node-ocpp-request.js"
     }

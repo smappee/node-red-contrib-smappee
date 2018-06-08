@@ -1,0 +1,44 @@
+<script type="text/x-red" data-template-name="charge-system-config">
+  <div class="form-row">
+    <label for="node-config-input-path"><i class="fa fa-globe"></i> <span>Path</span></label>
+    <input type="text" id="node-config-input-path">
+  </div>
+
+  <div class="form-row">
+      <label for="node-config-input-port"><i class="fa fa-random"></i> <span>Port</span></label>
+      <input type="text" id="node-config-input-port" placeholder="9999">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+    <input type="text" id="node-config-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="charge-system-config">
+  <p>A configuration node for an OCPP charge system for charge points.</p>
+  <h3>Properties</h3>
+  <h4>Path</h4>
+  <p>Path to listen to OCPP connections, which is then suffixed by the charge point identity.</p>
+  <h4>Port</h4>
+  <p>Port for OCPP connections, should be an unused port.</p>
+  <h4>Name</h4>
+  <p>Type in a node name manually or keep the default name.</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('charge-system-config', {
+    category: 'config',
+    defaults: {
+      name: {value: ''},
+      path: {value: '/smappee/ocpp', required: true},
+      port: {value: 4430, required: true},
+    },
+    label: function() {
+      return this.name || 'charge system' + (this.path ? `:${this.path}` : '');
+    },
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    },
+  });
+</script>

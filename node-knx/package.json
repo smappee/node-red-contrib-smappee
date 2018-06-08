@@ -1,6 +1,6 @@
 {
   "name": "@smappee/node-red-contrib-smappee-knx",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "description": "KNX nodes",
   "author": "Smappee NV",
   "license": "SEE LICENSE IN LICENSE",
