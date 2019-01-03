@@ -15,7 +15,7 @@ This repository contains all nodes available, separated per category.
 
 ## Feedback
 
-Help us improve by mailing [github@smappee.com](mailto:github@smappee.com) with feedback.
+Help us improve by mailing [support@smappee.com](mailto:support@smappee.com) with feedback.
 
 ## Nodes
 
@@ -52,4 +52,4 @@ npm install @smappee/node-red-contrib-smappee-knx
 
 ## Copyright and license
 
-Copyright © 2017-2018 Smappee NV, all rights reserved.
+Copyright © 2017-2019 Smappee NV, all rights reserved.
